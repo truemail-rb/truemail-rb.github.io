@@ -6,4 +6,4 @@
 
 `Truemail::Configuration`, `Truemail::Auditor` & `Truemail::Validator` instances for your RSpec environment.
 
-![Docs](https://icongr.am/material/book-open-page-variant.svg?color=808080&size=16) [Docs](https://truemail-rb.org/truemail-rspec ':target=_self')  ![GitHub](https://icongram.jgog.in/simple/github.svg?color=808080&size=16) [GitHub](https://github.com/truemail-rb/truemail-rspec)  ![Ruby Gems](https://icongr.am/devicon/ruby-plain.svg?size=16&color=808080&size=16) [Ruby Gems](https://rubygems.org/gems/truemail-rspec)
+![Docs](https://icongr.am/material/book-open-page-variant.svg?color=808080&size=16) [Docs](https://truemail-rb.org/truemail-rspec/ ':target=_self')  ![GitHub](https://icongram.jgog.in/simple/github.svg?color=808080&size=16) [GitHub](https://github.com/truemail-rb/truemail-rspec)  ![Ruby Gems](https://icongr.am/devicon/ruby-plain.svg?size=16&color=808080&size=16) [Ruby Gems](https://rubygems.org/gems/truemail-rspec)
