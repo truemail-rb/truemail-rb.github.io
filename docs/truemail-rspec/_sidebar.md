@@ -1,3 +1,4 @@
+- **Library Docs**
 - [Introduction](introduction)
 - [Quick Start](quick-start)
 - [Usage](usage)
@@ -7,3 +8,5 @@
 - **Library Links**
 - [![GitHub](https://icongram.jgog.in/simple/github.svg?color=808080&size=16)GitHub](https://github.com/truemail-rb/truemail-rspec)
 - [![Ruby Gems](https://icongr.am/devicon/ruby-plain.svg?size=16&color=808080&size=16)Ruby Gems](https://rubygems.org/gems/truemail-rspec)
+- **Truemail**
+[Main Documentation](https://truemail-rb.org ':target=_self')
