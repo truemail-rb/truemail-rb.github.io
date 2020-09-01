@@ -1,7 +1,6 @@
-# Truemail Family
+# Truemail libraries statuses
 
 ?> List of all `truemail-rb` libraries with their actual versions and build status. If you want to participate and help us - you're welcome!
-<!-- All Truemail extensions: https://github.com/truemail-rb -->
 
 | Project | Version | Build Status | Type | Description |
 | --- | --- | --- | --- | --- |
