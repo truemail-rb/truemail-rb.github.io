@@ -1,7 +1,7 @@
 - **Library Docs**
 - [Introduction](introduction)
 - [Quick Start](quick-start)
-- [Usage](usage)
+- [Configuration](configuration)
 - [Contact & Support](contact-support)
 - [Changelog](changelog)
 - [Truemail Family](truemail-family)
