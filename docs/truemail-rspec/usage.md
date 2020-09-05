@@ -17,7 +17,7 @@ create_configuration
 
 <!-- TODO: Need to update link when docs will be completed -->
 
-?> All `Truemail::Configuration` available params you can find [here](https://github.com/rubygarage/truemail#setting-global-configuration)
+?> All `Truemail::Configuration` available params you can find [here](https://truemail-rb.org/truemail-gem/#/configuration?id=configurable-options)
 
 ```ruby
 create_configuration(verifier_email: 'email@domain.com', verifier_domain: 'other-domain.com')
