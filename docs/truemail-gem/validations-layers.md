@@ -1,4 +1,4 @@
-# Validation features
+# Validation's layers
 
 ## Whitelist/Blacklist check
 
@@ -207,7 +207,7 @@ Truemail.validate('email@somedomain.com')
 
 Validation with regex pattern is the first validation level. It uses whitelist/blacklist check before running itself.
 
-> [[Whitelist/Blacklist]](validation-features?id=whitelistblacklist-check) -> [Regex validation]
+> [[Whitelist/Blacklist]](validations-layers?id=whitelistblacklist-check) -> [Regex validation]
 
 By default this validation not performs strictly following [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt) standard, so you can override Truemail default regex pattern if you want. Example of usage:
 
@@ -293,9 +293,9 @@ Truemail.validate('email@example.com', with: :regex)
 
 ## MX validation
 
-In fact it's DNS validation because it checks not MX records only. DNS validation is the second validation level, historically named as MX validation. It uses [Regex validation](validation-features?id=regex-validation) before running itself. When regex validation has completed successfully then runs itself.
+In fact it's DNS validation because it checks not MX records only. DNS validation is the second validation level, historically named as MX validation. It uses [Regex validation](validations-layers?id=regex-validation) before running itself. When regex validation has completed successfully then runs itself.
 
-> [[Whitelist/Blacklist]](validation-features?id=whitelistblacklist-check) -> [[Regex validation]](validation-features?id=regex-validation) -> [MX validation]
+> [[Whitelist/Blacklist]](validations-layers?id=whitelistblacklist-check) -> [[Regex validation]](validations-layers?id=regex-validation) -> [MX validation]
 
 Please note, Truemail MX validator [not performs](https://github.com/rubygarage/truemail/issues/26) strict compliance of the [RFC 5321](https://tools.ietf.org/html/rfc5321#section-5) standard for best validation outcome.
 
@@ -386,7 +386,7 @@ Truemail.validate('email@example.com', with: :mx)
 
 SMTP validation is a final, third validation level. This type of validation tries to check real existence of email account on a current email server. This validation runs a chain of previous validations and if they're complete successfully then runs itself.
 
-> [[Whitelist/Blacklist]](validation-features?id=whitelistblacklist-check) -> [[Regex validation]](validation-features?id=regex-validation) -> [[MX validation]](validation-features?id=mx-validation) -> [SMTP validation]
+> [[Whitelist/Blacklist]](validations-layers?id=whitelistblacklist-check) -> [[Regex validation]](validations-layers?id=regex-validation) -> [[MX validation]](validations-layers?id=mx-validation) -> [SMTP validation]
 
 If total count of MX servers is equal to one, `Truemail::Smtp` validator will use value from `Truemail.configuration.connection_attempts` as connection attempts. By default it's equal to `2`.
 
