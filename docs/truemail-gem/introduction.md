@@ -6,13 +6,7 @@
 
 ## Synopsis
 
-Email validation is a tricky thing. There are a number of different ways to validate an email address and all mechanisms must conform with the best practices and provide proper validation. The Truemail gem helps you to validate emails via regex pattern, presence of DNS records, and real existence of email account on a current email server. Also Truemail gem allows performing an audit of the host in which runs.
-
-- **Syntax Checking**: Checks the email addresses via regex pattern.
-
-- **Mail Server Existence Check**: Checks the availability of the email address domain using DNS records.
-
-- **Mail Existence Check**: Checks if the email address really exists and can receive email via SMTP connections and email-sending emulation techniques.
+Email validation is a tricky thing. There are a number of different ways to validate an email address and all mechanisms must conform with the best practices and provide proper validation. The Truemail gem helps you to validate emails via regex pattern (email syntax checking), presence of DNS records (mail-server existence checking), and real existence of email account on a current email server. Also Truemail gem allows performing an audit of the host in which runs.
 
 ## Features
 
