@@ -4,6 +4,7 @@
 - [Configuration](configuration)
 - [Validation's layers](validations-layers)
 - [Host audit features](host-audit-features)
+- [Event logger](event-logger)
 - [Contact & Support](contact-support)
 - [Changelog](changelog)
 - [Truemail Family](truemail-family)
