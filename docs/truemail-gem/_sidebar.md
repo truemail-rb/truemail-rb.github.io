@@ -5,6 +5,7 @@
 - [Validation's layers](validations-layers)
 - [Host audit features](host-audit-features)
 - [Event logger](event-logger)
+- [JSON serializers](json-serializers)
 - [Contact & Support](contact-support)
 - [Changelog](changelog)
 - [Truemail Family](truemail-family)
