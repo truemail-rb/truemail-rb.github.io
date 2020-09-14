@@ -7,6 +7,7 @@ Whitelist/Blacklist check is zero validation level. You can define white and bla
 Please note, other validations will not processed even if it was defined in `validation_type_for`.
 
 **Sequence of domain list check:**
+
 1. Whitelist check
 2. Whitelist validation check
 3. Blacklist check
@@ -225,7 +226,8 @@ Truemail.validate('email@example.com', with: :regex)
 => #<Truemail::Validator:0x000055590cc9bdb8
   @result=
     #<struct Truemail::Validator::Result
-      success=true, email="email@example.com",
+      success=true,
+      email="email@example.com",
       domain=nil,
       mail_servers=[],
       errors={},
