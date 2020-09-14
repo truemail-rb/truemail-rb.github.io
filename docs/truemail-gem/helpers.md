@@ -1,11 +1,24 @@
-# JSON serializers
+# Helpers
 
-Truemail has built in JSON serializers for `Truemail::Auditor` and `Truemail::Validator` instances, so you can represent your host audition or email validation result as json. Also you can use [#as_json](helpers?id=as_json) helper for shortcuting.
+## .valid?
 
-## Auditor JSON serializer
+You can use the `.valid?` helper for quick validation of email address. It returns a boolean:
 
 ```ruby
-Truemail::Log::Serializer::AuditorJson.call(Truemail.host_audit)
+Truemail.valid?('email@example.com')
+=> true
+```
+
+It is shortcut for `Truemail.validate('email@example.com').result.valid?`
+
+## #as_json
+
+You can use `#as_json` helper for represent `Truemail::Auditor` or `Truemail::Validator` instances as json. Under the hood it uses internal json `Truemail::Log::Serializer::AuditorJson` and `Truemail::Log::Serializer::ValidatorJson` [serializers](json-serializers):
+
+### Auditor example
+
+```ruby
+Truemail.host_audit.as_json
 ```
 
 Returns serialized `Truemail::Auditor` instance as JSON-object:
@@ -31,17 +44,17 @@ Returns serialized `Truemail::Auditor` instance as JSON-object:
 }
 ```
 
-## Validator JSON serializer
+### Validator example
 
 ```ruby
-Truemail::Log::Serializer::ValidatorJson.call(Truemail.validate('nonexistent_email@bestweb.com.ua'))
+Truemail.validate('nonexistent_email@bestweb.com.ua').as_json
 ```
 
 Returns serialized `Truemail::Validator` instance as JSON-object:
 
 ```json
 {
-  "date": "2019-10-28 10:15:51 +0200",
+  "date": "2020-05-10 10:00:00 +0200",
   "email": "nonexistent_email@bestweb.com.ua",
   "validation_type": "smtp",
   "success": false,
