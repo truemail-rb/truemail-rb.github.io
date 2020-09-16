@@ -1,5 +1,7 @@
 # Validation's layers
 
+Truemail is a multi-layered email validator/verifier with configurable behavior for specified domain names. So you can validate only what you need.
+
 ## Whitelist/Blacklist check
 
 Whitelist/Blacklist check is zero validation level. You can define white and black list domains. It means that validation of email which contains whitelisted domain always will return `true`, and for blacklisted domain will return `false`.

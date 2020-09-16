@@ -8,13 +8,13 @@ Checks is current Truemail host has proper internet connection and detects curre
 
 ## DNS audit
 
-Checks is verifier domain refer to current Truemail host IP address.
+Checks is verifier domain refer to current IP address of Truemail host ([verefier host](terminology?id=verifier-host)).
 
 ## PTR audit
 
-Checks is PTR record exists for your Truemail host ip address exists and refers to current verifier domain.
+Checks is [PTR record](terminology?id=ptr-record) exists for your Truemail host ip address exists and refers to current verifier domain.
 
-> A PTR record, or pointer record, enables someone to perform a reverse DNS lookup. This allows them to determine your domain name based on your IP address. Because generic domain names without a PTR are often associated with spammers, incoming mail servers identify email from hosts without PTR records as spam and you can't verify yours emails qualitatively.
+> Because generic domain names without a PTR are often associated with spammers, incoming mail servers identify email from hosts without PTR records as spam and you can't verify yours emails qualitatively.
 
 ## Example of using
 

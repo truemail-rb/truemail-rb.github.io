@@ -17,7 +17,7 @@ Truemail.configure do |config|
 end
 ```
 
-> Please note, this is the preferred way instead of using stubs.
+?> Please note, this is the preferred way instead of using stubs.
 
 ## Using stubs
 
@@ -42,3 +42,5 @@ RSpec.describe 'some test' do
   end
 end
 ```
+
+> Truemail RSpec helpers for configuration, auditor & validator instances are available as [`truemail-rspec`](https://truemail-rb.org/truemail-rspec ':target=_self') gem.

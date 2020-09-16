@@ -1,6 +1,6 @@
 # Configuration
 
-> Please note, you should have [global](#global-configuration) or [custom independent configuration](#independent-configuration) for using Truemail gem.
+?> Please note, you should have [global](#global-configuration) or [custom independent configuration](#independent-configuration) for using Truemail gem.
 
 ## Configurable options
 
