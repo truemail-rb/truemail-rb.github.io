@@ -1,5 +1,6 @@
 - **Library Docs**
 - [Introduction](introduction)
+- [Terminology](terminology)
 - [Quick Start](quick-start)
 - [Configuration](configuration)
 - [Validation's layers](validations-layers)
