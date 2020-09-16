@@ -2,8 +2,8 @@
 - [Resources](resources)
 - [Libraries statuses](truemail-family)
 - **Truemail Family**
-- [Truemail Ruby Gem](https://truemail-rb.org/truemail-gem/ ':target=_self')
-- [Truemail RSpec](https://truemail-rb.org/truemail-rspec/ ':target=_self')
+- [Truemail Ruby Gem](https://truemail-rb.org/truemail-gem ':target=_self')
+- [Truemail RSpec](https://truemail-rb.org/truemail-rspec ':target=_self')
 - **Links**
 - [![GitHub](https://icongr.am/devicon/github-original.svg?color=808080&size=16)GitHub](https://github.com/truemail-rb)
 - [![DockerHub](https://icongr.am/devicon/docker-plain-wordmark.svg?color=808080&size=16)DockerHub](https://hub.docker.com/u/truemail)

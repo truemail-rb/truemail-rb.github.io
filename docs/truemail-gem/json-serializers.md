@@ -1,6 +1,8 @@
 # JSON serializers
 
-Truemail has built in JSON serializers for `Truemail::Auditor` and `Truemail::Validator` instances, so you can represent your host audition or email validation result as json. Also you can use [#as_json](helpers?id=as_json) helper for shortcuting.
+Truemail has built in JSON serializers for `Truemail::Auditor` and `Truemail::Validator` instances, so you can represent your host audition or email validation result as json.
+
+> Please note, the preferred way is to use [#as_json](helpers?id=as_json) helper instead of calling serializer instance directly.
 
 ## Auditor JSON serializer
 
