@@ -301,7 +301,7 @@ In fact it's DNS validation because it checks not MX records only. DNS validatio
 
 > [[Whitelist/Blacklist]](validations-layers?id=whitelistblacklist-check) -> [[Regex validation]](validations-layers?id=regex-validation) -> [MX validation]
 
-Please note, Truemail MX validator [not performs](https://github.com/rubygarage/truemail/issues/26) strict compliance of the [RFC 5321](https://tools.ietf.org/html/rfc5321#section-5) standard for best validation outcome.
+Please note, Truemail MX validator [not performs](https://github.com/rubygarage/truemail/issues/26) strict compliance of the [RFC 5321](https://tools.ietf.org/html/rfc5321#section-5) standard for the best validation outcome.
 
 ### RFC MX lookup flow
 
@@ -392,7 +392,9 @@ SMTP validation is a final, third validation level. This type of validation trie
 
 > [[Whitelist/Blacklist]](validations-layers?id=whitelistblacklist-check) -> [[Regex validation]](validations-layers?id=regex-validation) -> [[MX validation]](validations-layers?id=mx-validation) -> [SMTP validation]
 
-If total count of MX servers is equal to one, `Truemail::Smtp` validator will use value from `Truemail.configuration.connection_attempts` as connection attempts. By default it's equal to `2`. If you plan to use this validation layer you should follow [verifier host preconditions rules](quick-start?id=verifier-host-preconditions) for the best email SMTP validation outcome.
+If total count of MX servers is equal to one, `Truemail::Smtp` validator will use value from `Truemail.configuration.connection_attempts` as connection attempts. By default it's equal to `2`.
+
+?> You should follow [verifier host preconditions rules](quick-start?id=verifier-host-preconditions) for the best email SMTP validation outcome if you plan to use this validation layer.
 
 By default, you don't need pass with-parameter to use it. Example of usage is specified below:
 
