@@ -1,6 +1,6 @@
 # Event logger
 
-Truemail gem allows to output tracking events to stdout/file or both of these. Please note, at least one of the outputs must exist. Tracking event by default is `:error`
+Truemail gem allows to output tracking events to stdout/file or both of these. Please note, at least one of the outputs must exist. Tracking event by default is `:error`.
 
 ```ruby
 Truemail.configure do |config|
