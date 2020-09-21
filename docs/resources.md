@@ -13,3 +13,4 @@
 ## Blog posts
 
 - [How to validate emails with the Truemail Ruby gem](https://rubygarage.org/blog/how-to-validate-emails) (EN)
+- [How to validate email format in Rails: regex and gems](https://blog.mailtrap.io/rails-email-validation) (EN)
