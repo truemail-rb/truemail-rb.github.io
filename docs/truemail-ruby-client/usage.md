@@ -62,9 +62,9 @@ Truemail::Client.configuration
 => nil
 ```
 
-## Establishing connection
+## Email validation/verification
 
-After successful configuration, you can establish connection with Truemail server.
+After successful configuration, you can establish connection with Truemail server and validate an email.
 
 ```ruby
 Truemail::Client.validate('admin@bestweb.com.ua')
@@ -94,4 +94,14 @@ Truemail::Client.validate('admin@bestweb.com.ua')
 {
   "truemail_client_error": "error details"
 }
+```
+
+## Checking server health status
+
+After successful configuration, you can check health-status of Truemail server. It always returns a `boolean`.
+
+```ruby
+Truemail::Client.server_healthy?
+
+=> true
 ```
