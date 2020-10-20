@@ -301,7 +301,7 @@ In fact it's DNS validation because it checks not MX records only. DNS validatio
 
 > [[Whitelist/Blacklist]](validations-layers?id=whitelistblacklist-check) -> [[Regex validation]](validations-layers?id=regex-validation) -> [MX validation]
 
-Please note, Truemail MX validator [not performs](https://github.com/rubygarage/truemail/issues/26) strict compliance of the [RFC 5321](https://tools.ietf.org/html/rfc5321#section-5) standard for the best validation outcome.
+Please note, Truemail MX validator [not performs](https://github.com/truemail-rb/truemail/issues/26) strict compliance of the [RFC 5321](https://tools.ietf.org/html/rfc5321#section-5) standard for the best validation outcome.
 
 ### RFC MX lookup flow
 
@@ -463,10 +463,7 @@ Truemail.validate('email@example.com')
               #<struct Truemail::Validate::Smtp::Response
                 port_opened=true,
                 connection=true,
-                helo=
-                  #<Net::SMTP::Response:0x0000000002d5aca8
-                    @status="250",
-                    @string="250 127.0.1.1 Hello example.com\n">,
+                helo=true,
                 mailfrom=
                   #<Net::SMTP::Response:0x0000000002d5a618
                     @status="250",
@@ -530,10 +527,7 @@ Truemail.validate('email@example.com')
               #<struct Truemail::Validate::Smtp::Response
                 port_opened=true,
                 connection=false,
-                helo=
-                  #<Net::SMTP::Response:0x0000000002c934c8
-                  @status="250",
-                  @string="250 127.0.1.1\n">,
+                helo=true,
                 mailfrom=false,
                 rcptto=nil,
                 errors={:mailfrom=>"554 5.7.1 Client host blocked\n", :connection=>"server dropped connection after response"}>>,]>,
@@ -579,10 +573,7 @@ Truemail.validate('email@example.com')
             #<struct Truemail::Validate::Smtp::Response
               port_opened=true,
               connection=true,
-              helo=
-              #<Net::SMTP::Response:0x0000000002d5aca8
-                @status="250",
-                @string="250 127.0.1.1 Hello example.com\n">,
+              helo=true,
               mailfrom=#<Net::SMTP::Response:0x0000000002d5a618 @status="250", @string="250 OK\n">,
               rcptto=false,
               errors={:rcptto=>"550 User not found\n"}>>]>,
