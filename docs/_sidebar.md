@@ -3,7 +3,7 @@
 - [Libraries statuses](truemail-family)
 - **Truemail Server**
 - [Rack application](https://truemail-rb.org/truemail-rack ':target=_self')
-<!-- - [Rack docker image](https://truemail-rb.org/truemail-rack-docker-image ':target=_self') -->
+- [Rack docker image](https://truemail-rb.org/truemail-rack-docker-image ':target=_self')
 - **Clients**
 - [Ruby client](https://truemail-rb.org/truemail-ruby-client ':target=_self')
 <!-- - [Crystal client](https://truemail-rb.org/truemail-crystal-client ':target=_self') -->
