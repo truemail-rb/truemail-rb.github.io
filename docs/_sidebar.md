@@ -1,9 +1,15 @@
 - [About](about)
 - [Resources](resources)
 - [Libraries statuses](truemail-family)
-- **Truemail Family**
+- **Truemail Server**
+- [Rack application](https://truemail-rb.org/truemail-rack ':target=_self')
+<!-- - [Rack docker image](https://truemail-rb.org/truemail-rack-docker-image ':target=_self') -->
+- **Clients**
+- [Ruby client](https://truemail-rb.org/truemail-ruby-client ':target=_self')
+<!-- - [Crystal client](https://truemail-rb.org/truemail-crystal-client ':target=_self') -->
+<!-- - [Java client](https://truemail-rb.org/truemail-java-client ':target=_self') -->
+- **Ruby Gems**
 - [Truemail Ruby Gem](https://truemail-rb.org/truemail-gem ':target=_self')
-- [Truemail Ruby client](https://truemail-rb.org/truemail-ruby-client ':target=_self')
 - [Truemail RSpec](https://truemail-rb.org/truemail-rspec ':target=_self')
 - **Links**
 - [![GitHub](https://icongr.am/devicon/github-original.svg?color=808080&size=16)GitHub](https://github.com/truemail-rb)
