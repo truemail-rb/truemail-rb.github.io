@@ -1,6 +1,14 @@
 # ![Truemail - configurable framework agnostic plain Ruby email validator](https://truemail-rb.org/assets/images/truemail_logo.png)
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/0fea6d2e64d78d66b149/maintainability)](https://codeclimate.com/github/truemail-rb/truemail/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/0fea6d2e64d78d66b149/test_coverage)](https://codeclimate.com/github/truemail-rb/truemail/test_coverage) [![CircleCI](https://circleci.com/gh/truemail-rb/truemail/tree/master.svg?style=svg)](https://circleci.com/gh/truemail-rb/truemail/tree/master) [![Gem Version](https://badge.fury.io/rb/truemail.svg)](https://badge.fury.io/rb/truemail) [![Downloads](https://img.shields.io/gem/dt/truemail.svg?colorA=004d99&colorB=0073e6)](https://rubygems.org/gems/truemail) [![Gitter](https://badges.gitter.im/truemail-rb/community.svg)](https://gitter.im/truemail-rb/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
+[![Maintainability](https://api.codeclimate.com/v1/badges/0fea6d2e64d78d66b149/maintainability)](https://codeclimate.com/github/truemail-rb/truemail/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/0fea6d2e64d78d66b149/test_coverage)](https://codeclimate.com/github/truemail-rb/truemail/test_coverage)
+[![CircleCI](https://circleci.com/gh/truemail-rb/truemail/tree/master.svg?style=svg)](https://circleci.com/gh/truemail-rb/truemail/tree/master)
+[![Gem Version](https://badge.fury.io/rb/truemail.svg)](https://badge.fury.io/rb/truemail)
+[![Downloads](https://img.shields.io/gem/dt/truemail.svg?colorA=004d99&colorB=0073e6)](https://rubygems.org/gems/truemail)
+[![SemVer compatibility](https://api.dependabot.com/badges/compatibility_score?dependency-name=truemail&package-manager=bundler&version-scheme=semver)](https://dependabot.com/compatibility-score.html?dependency-name=truemail&package-manager=bundler&version-scheme=semver)
+[![GitHub](https://img.shields.io/github/license/truemail-rb/truemail-rack)](https://github.com/truemail-rb/truemail/blob/master/LICENSE.txt)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](https://github.com/truemail-rb/truemail/blob/master/CODE_OF_CONDUCT.md)
+[![Gitter](https://badges.gitter.im/truemail-rb/community.svg)](https://gitter.im/truemail-rb/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 > Configurable **framework agnostic** plain Ruby email validator/verifier. Verify email via Regex, DNS and SMTP. Be sure that email address valid and exists.
 
