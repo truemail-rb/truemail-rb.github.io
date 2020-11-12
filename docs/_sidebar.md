@@ -6,8 +6,8 @@
 - [Rack docker image](https://truemail-rb.org/truemail-rack-docker-image ':target=_self')
 - **Clients**
 - [Ruby client](https://truemail-rb.org/truemail-ruby-client ':target=_self')
+- [Java client](https://truemail-rb.org/truemail-java-client ':target=_self')
 <!-- - [Crystal client](https://truemail-rb.org/truemail-crystal-client ':target=_self') -->
-<!-- - [Java client](https://truemail-rb.org/truemail-java-client ':target=_self') -->
 - **Ruby Gems**
 - [Truemail Ruby Gem](https://truemail-rb.org/truemail-gem ':target=_self')
 - [Truemail RSpec](https://truemail-rb.org/truemail-rspec ':target=_self')
