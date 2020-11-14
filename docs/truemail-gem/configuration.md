@@ -44,10 +44,12 @@ Truemail.configure do |config|
   # Optional parameter. You can override default regex pattern
   config.smtp_error_body_pattern = /regex_pattern/
 
-  # Optional parameter. Connection timeout is equal to 2 ms by default.
+  # Optional parameter. Connection timeout in seconds.
+  # It is equal to 2 by default.
   config.connection_timeout = 1
 
-  # Optional parameter. A SMTP server response timeout is equal to 2 ms by default.
+  # Optional parameter. A SMTP server response timeout in seconds.
+  # It is equal to 2 by default.
   config.response_timeout = 1
 
   # Optional parameter. Total of connection attempts. This parameter uses in
