@@ -9,6 +9,7 @@
 - [JSON serializers](json-serializers)
 - [Helpers](helpers)
 - [Test environment](test-environment)
+- [Troubleshooting](troubleshooting)
 - [Contact & Support](contact-support)
 - [Changelog](changelog)
 - [Truemail Family](truemail-family)
