@@ -16,7 +16,8 @@
 - whitelisted domains
 - whitelist validation
 - blacklisted domains
-- different MX lookup scenarios
+- RFC MX lookup flow
+- SMTP fail fast
 - SMTP safe check
 - event logger
 
@@ -96,6 +97,14 @@ Truemail.configure do |config|
   # layer only. By default this option is disabled.
   config.not_rfc_mx_lookup_flow = true
 
+  # Optional parameter. This option will provide to use smtp fail fast behaviour.
+  # When smtp_fail_fast = true it means that truemail ends smtp validation session
+  # after first attempt on the first mx server in any fail cases (network
+  # connection/timeout error, smtp validation error). This feature helps to reduce
+  # total time of SMTP validation session up to 1 second. By default this option
+  # is disabled.
+  config.smtp_fail_fast = true
+
   # Optional parameter. This option will be parse bodies of SMTP errors. It will
   # be helpful if SMTP server does not return an exact answer that the email does
   # not exist. By default this option is disabled, available for SMTP
@@ -134,6 +143,7 @@ Truemail.configuration
  @verifier_domain="somedomain.com",
  @verifier_email="verifier@example.com",
  @not_rfc_mx_lookup_flow=true,
+ @smtp_fail_fast=true,
  @smtp_safe_check=true,
  @logger=#<Truemail::Logger:0x0000557f837450b0
    @event=:all, @file="/home/app/log/truemail.log", @stdout=true>>
@@ -163,6 +173,7 @@ Truemail.configuration
  @verifier_domain="somedomain.com",
  @verifier_email="verifier@example.com",
  @not_rfc_mx_lookup_flow=true,
+ @smtp_fail_fast=true,
  @smtp_safe_check=true,
  @logger=#<Truemail::Logger:0x0000557f837450b0
    @event=:all, @file="/home/app/log/truemail.log", @stdout=true>>

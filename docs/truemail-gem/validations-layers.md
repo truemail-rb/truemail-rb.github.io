@@ -51,6 +51,7 @@ Truemail.validate('email@white-domain.com')
      @response_timeout=2,
      @smtp_error_body_pattern=/(?=.*550)(?=.*(user|account|customer|mailbox)).*/i,
      @not_rfc_mx_lookup_flow=false,
+     @smtp_fail_fast=false,
      @smtp_safe_check=false,
      @validation_type_by_domain={"somedomain.com"=>:mx},
      @verifier_domain="example.com",
@@ -97,6 +98,7 @@ Truemail.validate('email@white-domain.com', with: :regex)
      @response_timeout=2,
      @smtp_error_body_pattern=/(?=.*550)(?=.*(user|account|customer|mailbox)).*/i,
      @not_rfc_mx_lookup_flow=false,
+     @smtp_fail_fast=false,
      @smtp_safe_check=false,
      @validation_type_by_domain={},
      @verifier_domain="example.com",
@@ -129,6 +131,7 @@ Truemail.validate('email@domain.com', with: :regex)
      @response_timeout=2,
      @smtp_error_body_pattern=/(?=.*550)(?=.*(user|account|customer|mailbox)).*/i,
      @not_rfc_mx_lookup_flow=false,
+     @smtp_fail_fast=false,
      @smtp_safe_check=false,
      @validation_type_by_domain={},
      @verifier_domain="example.com",
@@ -163,6 +166,7 @@ Truemail.validate('email@black-domain.com')
      @response_timeout=2,
      @smtp_error_body_pattern=/(?=.*550)(?=.*(user|account|customer|mailbox)).*/i,
      @not_rfc_mx_lookup_flow=false,
+     @smtp_fail_fast=false,
      @smtp_safe_check=false,
      @validation_type_by_domain={},
      @verifier_domain="example.com",
@@ -197,6 +201,7 @@ Truemail.validate('email@somedomain.com')
      @response_timeout=2,
      @smtp_error_body_pattern=/(?=.*550)(?=.*(user|account|customer|mailbox)).*/i,
      @not_rfc_mx_lookup_flow=false,
+     @smtp_fail_fast=false,
      @smtp_safe_check=false,
      @validation_type_by_domain={},
      @verifier_domain="example.com",
@@ -244,6 +249,7 @@ Truemail.validate('email@example.com', with: :regex)
        @response_timeout=2,
        @smtp_error_body_pattern=/(?=.*550)(?=.*(user|account|customer|mailbox)).*/i,
        @not_rfc_mx_lookup_flow=false,
+       @smtp_fail_fast=false,
        @smtp_safe_check=false,
        @validation_type_by_domain={},
        @verifier_domain="example.com",
@@ -286,6 +292,7 @@ Truemail.validate('email@example.com', with: :regex)
        @response_timeout=2,
        @smtp_error_body_pattern=/(?=.*550)(?=.*(user|account|customer|mailbox)).*/i,
        @not_rfc_mx_lookup_flow=false,
+       @smtp_fail_fast=false,
        @smtp_safe_check=false,
        @validation_type_by_domain={},
        @verifier_domain="example.com",
@@ -335,6 +342,7 @@ Truemail.validate('email@example.com', with: :mx)
        @response_timeout=2,
        @smtp_error_body_pattern=/(?=.*550)(?=.*(user|account|customer|mailbox)).*/i,
        @not_rfc_mx_lookup_flow=false,
+       @smtp_fail_fast=false,
        @smtp_safe_check=false,
        @validation_type_by_domain={},
        @verifier_domain="example.com",
@@ -377,6 +385,7 @@ Truemail.validate('email@example.com', with: :mx)
        @response_timeout=2,
        @smtp_error_body_pattern=/(?=.*550)(?=.*(user|account|customer|mailbox)).*/i,
        @not_rfc_mx_lookup_flow=true,
+       @smtp_fail_fast=false,
        @smtp_safe_check=false,
        @validation_type_by_domain={},
        @verifier_domain="example.com",
@@ -392,11 +401,73 @@ SMTP validation is a final, third validation level. This type of validation trie
 
 > [[Whitelist/Blacklist]](validations-layers?id=whitelistblacklist-check) -> [[Regex validation]](validations-layers?id=regex-validation) -> [[MX validation]](validations-layers?id=mx-validation) -> [SMTP validation]
 
-If total count of MX servers is equal to one, `Truemail::Smtp` validator will use value from `Truemail.configuration.connection_attempts` as connection attempts. By default it's equal to `2`.
+If `smtp_fail_fast` feature is disabled or total count of MX servers is equal to one, `Truemail::Smtp` validator will use value from `Truemail.configuration.connection_attempts` as connection attempts. By default it's equal to `2`.
 
-?> You should follow [verifier host preconditions rules](quick-start?id=verifier-host-preconditions) for the best email SMTP validation outcome if you plan to use this validation layer.
+?> You should follow [verifier host preconditions rules](quick-start?id=verifier-host-preconditions) for the best email SMTP validation outcome if you going to use this validation layer. Also you can reduce time of SMTP validation by enabling SMTP fail fast behaviour.
 
 By default, you don't need pass with-parameter to use it. Example of usage is specified below:
+
+### SMTP fail fast enabled
+
+Truemail can use fail fast behaviour for SMTP validation layer. When `smtp_fail_fast = true` it means that `truemail` ends smtp validation session after first attempt on the first mx server in any fail cases (network connection/timeout error, smtp validation error). This feature helps to reduce total time of SMTP validation session up to 1 second.
+
+```ruby
+require 'truemail'
+
+Truemail.configure do |config|
+  config.verifier_email = 'verifier@example.com'
+  config.smtp_fail_fast = true
+end
+
+Truemail.validate('email@example.com')
+
+# SMTP validation failed, smtp fail fast validation scenario
+=> #<Truemail::Validator:0x00007fdc4504f460
+    @result=
+      #<struct Truemail::Validator::Result
+        success=false,
+        email="email@example.com",
+        domain="example.com",
+        mail_servers=["127.0.1.1", "127.0.1.2", "127.0.1.3"], # there are 3 mail servers in a row
+        errors={:smtp=>"smtp error"},
+        smtp_debug=
+          [#<Truemail::Validate::Smtp::Request:0x00007fdc43150b90 # but iteration has been stopped after the first failure
+            @attempts=nil,
+            @configuration=
+              #<Truemail::Validate::Smtp::Request::Configuration:0x00007fdc43150b18
+                @connection_timeout=2,
+                @response_timeout=2,
+                @verifier_domain="example.com",
+                @verifier_email="verifier@example.com">,
+            @email="email@example.com",
+            @host="127.0.1.1",
+            @response=
+              #<struct Truemail::Validate::Smtp::Response
+                port_opened=false,
+                connection=nil,
+                helo=nil,
+                mailfrom=nil,
+                rcptto=nil,
+                errors={}>>],
+        configuration=
+          #<Truemail::Configuration:0x00007fdc4504f5c8
+            @blacklisted_domains=[],
+            @connection_attempts=2,
+            @connection_timeout=2,
+            @default_validation_type=:smtp,
+            @email_pattern=/(?=\A.{6,255}\z)(\A([\p{L}0-9]+[\w|\-.+]*)@((?i-mx:[\p{L}0-9]+([\-.]{1}[\p{L}0-9]+)*\.\p{L}{2,63}))\z)/,
+            @not_rfc_mx_lookup_flow=false,
+            @response_timeout=2,
+            @smtp_error_body_pattern=/(?=.*550)(?=.*(user|account|customer|mailbox)).*/i,
+            @smtp_fail_fast=true,
+            @smtp_safe_check=false,
+            @validation_type_by_domain={},
+            @verifier_domain="example.com",
+            @verifier_email="verifier@example.com",
+            @whitelist_validation=false,
+            @whitelisted_domains=[]>>,
+      @validation_type=:smtp>
+```
 
 ### SMTP safe check disabled
 
@@ -431,6 +502,7 @@ Truemail.validate('email@example.com')
        @response_timeout=2,
        @smtp_error_body_pattern=/(?=.*550)(?=.*(user|account|customer|mailbox)).*/i,
        @not_rfc_mx_lookup_flow=false,
+       @smtp_fail_fast=false,
        @smtp_safe_check=false,
        @validation_type_by_domain={},
        @verifier_domain="example.com",
@@ -480,6 +552,7 @@ Truemail.validate('email@example.com')
              @response_timeout=2,
              @smtp_error_body_pattern=/(?=.*550)(?=.*(user|account|customer|mailbox)).*/i,
              @not_rfc_mx_lookup_flow=false,
+             @smtp_fail_fast=false,
              @smtp_safe_check=false,
              @validation_type_by_domain={},
              @verifier_domain="example.com",
@@ -541,6 +614,7 @@ Truemail.validate('email@example.com')
              @response_timeout=2,
              @smtp_error_body_pattern=/(?=.*550)(?=.*(user|account|customer|mailbox)).*/i,
              @not_rfc_mx_lookup_flow=false,
+             @smtp_fail_fast=false,
              @smtp_safe_check=false,
              @validation_type_by_domain={},
              @verifier_domain="example.com",
@@ -587,6 +661,7 @@ Truemail.validate('email@example.com')
              @response_timeout=2,
              @smtp_error_body_pattern=/(?=.*550)(?=.*(user|account|customer|mailbox)).*/i,
              @not_rfc_mx_lookup_flow=false,
+             @smtp_fail_fast=false,
              @smtp_safe_check=false,
              @validation_type_by_domain={},
              @verifier_domain="example.com",

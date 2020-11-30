@@ -22,10 +22,12 @@ Email validation is a tricky thing. There are a number of different ways to vali
 2. Minimal runtime dependencies
 3. Supporting of internationalized emails ([EAI](https://en.wikipedia.org/wiki/Email_address#Internationalization))
 4. Whitelist/blacklist validation's layers
-5. Simple SMTP debugger
-6. Event logger
-7. Host auditor tools (helps to detect common host problems interfering to proper email verification)
-8. JSON serializers for audition and validation results
+5. Ability to configure different MX/SMTP validation flows
+6. Simple SMTP debugger
+7. Event logger
+8. Host auditor tools (helps to detect common host problems interfering to proper email verification)
+9. JSON serializers for audition and validation results
+10. Ability to use the library as independent stateless microservice ([Truemail Server](https://truemail-rb.org/truemail-rack))
 
 ## License
 
