@@ -20,6 +20,7 @@ Checks is [PTR record](terminology?id=ptr-record) exists for your Truemail host 
 
 ```ruby
 Truemail.host_audit
+
 # Everything is good
 => #<Truemail::Auditor:0x00005580df358828
    @result=
@@ -36,6 +37,7 @@ Truemail.host_audit
          @response_timeout=2,
          @smtp_error_body_pattern=/(?=.*550)(?=.*(user|account|customer|mailbox)).*/i,
          @not_rfc_mx_lookup_flow=false,
+         @smtp_fail_fast=false,
          @smtp_safe_check=false,
          @validation_type_by_domain={},
          @verifier_domain="example.com",
@@ -62,6 +64,7 @@ Truemail.host_audit
          @response_timeout=2,
          @smtp_error_body_pattern=/(?=.*550)(?=.*(user|account|customer|mailbox)).*/i,
          @not_rfc_mx_lookup_flow=false,
+         @smtp_fail_fast=false,
          @smtp_safe_check=false,
          @validation_type_by_domain={},
          @verifier_domain="example.com",

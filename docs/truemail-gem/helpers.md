@@ -37,6 +37,7 @@ Returns serialized `Truemail::Auditor` instance as JSON-object:
     "whitelisted_domains": null,
     "blacklisted_domains": null,
     "not_rfc_mx_lookup_flow": false,
+    "smtp_fail_fast": false,
     "smtp_safe_check": false,
     "email_pattern": "default gem value",
     "smtp_error_body_pattern": "default gem value"
@@ -77,6 +78,7 @@ Returns serialized `Truemail::Validator` instance as JSON-object:
     "whitelisted_domains": null,
     "blacklisted_domains": null,
     "not_rfc_mx_lookup_flow": false,
+    "smtp_fail_fast": false,
     "smtp_safe_check": false,
     "email_pattern": "default gem value",
     "smtp_error_body_pattern": "default gem value"
