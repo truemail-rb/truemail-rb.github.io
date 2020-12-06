@@ -59,6 +59,7 @@ create_validator(
   email, # optional, type:String, by default random email
   mail_servers, # optional, type:Array(String), by default array with random ip addresses
   success: true, # optional, type:Bool, by default true
+  rcptto_error: 'custom context of rcptto error', # optional, type:String, by default it's equal to 'user not found'
   configuration: create_configuration # optional, type:Truemail::Configuration, by default creates random configuration
 )
 
