@@ -3,7 +3,7 @@
 ## Talks
 
 - Email validation, Ruby Meditation #27, [slides](https://slides.com/vladislavtrotsenko/truemail) and [video](https://www.youtube.com/watch?v=jeZYfLP7pZw) (EN)
-- From Ruby gem to microservice, Pivorak Online Edition #3, [slides](https://slides.com/vladislavtrotsenko/truemail-rack) (EN)
+- From Ruby gem to microservice, Pivorak Online Edition #3, [slides](https://slides.com/vladislavtrotsenko/truemail-rack) (EN) and [video](https://www.youtube.com/watch?v=NLadtRy06ao) (RU)
 
 ## Podcasts
 
