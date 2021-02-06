@@ -30,6 +30,7 @@ Truemail.host_audit
        configuration=
         #<Truemail::Configuration:0x00005615e86327a8
          @blacklisted_domains=[],
+         @dns=[],
          @connection_attempts=2,
          @connection_timeout=2,
          @default_validation_type=:smtp,
@@ -57,6 +58,7 @@ Truemail.host_audit
        configuration=
         #<Truemail::Configuration:0x00005615e86327a8
          @blacklisted_domains=[],
+         @dns=[],
          @connection_attempts=2,
          @connection_timeout=2,
          @default_validation_type=:smtp,
