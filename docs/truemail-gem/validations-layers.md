@@ -44,6 +44,7 @@ Truemail.validate('email@white-domain.com')
     smtp_debug=nil>,
     configuration=#<Truemail::Configuration:0x00005629f801bd28
      @blacklisted_domains=["black-domain.com", "somedomain.com"],
+     @dns=[],
      @connection_attempts=2,
      @connection_timeout=2,
      @default_validation_type=:smtp,
@@ -91,6 +92,7 @@ Truemail.validate('email@white-domain.com', with: :regex)
     configuration=
     #<Truemail::Configuration:0x0000563f0d2605c8
      @blacklisted_domains=[],
+     @dns=[],
      @connection_attempts=2,
      @connection_timeout=2,
      @default_validation_type=:smtp,
@@ -124,6 +126,7 @@ Truemail.validate('email@domain.com', with: :regex)
     configuration=
     #<Truemail::Configuration:0x0000563f0cd82ab0
      @blacklisted_domains=[],
+     @dns=[],
      @connection_attempts=2,
      @connection_timeout=2,
      @default_validation_type=:smtp,
@@ -159,6 +162,7 @@ Truemail.validate('email@black-domain.com')
     configuration=
     #<Truemail::Configuration:0x0000563f0d36f4f0
      @blacklisted_domains=[],
+     @dns=[],
      @connection_attempts=2,
      @connection_timeout=2,
      @default_validation_type=:smtp,
@@ -194,6 +198,7 @@ Truemail.validate('email@somedomain.com')
     configuration=
     #<Truemail::Configuration:0x0000563f0d3f8fc0
      @blacklisted_domains=[],
+     @dns=[],
      @connection_attempts=2,
      @connection_timeout=2,
      @default_validation_type=:smtp,
@@ -242,6 +247,7 @@ Truemail.validate('email@example.com', with: :regex)
       configuration=
       #<Truemail::Configuration:0x000055aa56a54d48
        @blacklisted_domains=[],
+       @dns=[],
        @connection_attempts=2,
        @connection_timeout=2,
        @default_validation_type=:smtp,
@@ -285,6 +291,7 @@ Truemail.validate('email@example.com', with: :regex)
       configuration=
       #<Truemail::Configuration:0x0000560e58d80830
        @blacklisted_domains=[],
+       @dns=[],
        @connection_attempts=2,
        @connection_timeout=2,
        @default_validation_type=:smtp,
@@ -335,6 +342,7 @@ Truemail.validate('email@example.com', with: :mx)
       configuration=
       #<Truemail::Configuration:0x0000559b6e44af70
        @blacklisted_domains=[],
+       @dns=[],
        @connection_attempts=2,
        @connection_timeout=2,
        @default_validation_type=:smtp,
@@ -378,6 +386,7 @@ Truemail.validate('email@example.com', with: :mx)
       configuration=
       #<Truemail::Configuration:0x0000559b6e44af70
        @blacklisted_domains=[],
+       @dns=[],
        @connection_attempts=2,
        @connection_timeout=2,
        @default_validation_type=:smtp,
@@ -452,6 +461,7 @@ Truemail.validate('email@example.com')
         configuration=
           #<Truemail::Configuration:0x00007fdc4504f5c8
             @blacklisted_domains=[],
+            @dns=[],
             @connection_attempts=2,
             @connection_timeout=2,
             @default_validation_type=:smtp,
@@ -495,6 +505,7 @@ Truemail.validate('email@example.com')
       configuration=
       #<Truemail::Configuration:0x00005615e87b9298
        @blacklisted_domains=[],
+       @dns=[],
        @connection_attempts=2,
        @connection_timeout=2,
        @default_validation_type=:smtp,
@@ -545,6 +556,7 @@ Truemail.validate('email@example.com')
           configuration=
             #<Truemail::Configuration:0x00005615e87b9298
              @blacklisted_domains=[],
+             @dns=[],
              @connection_attempts=2,
              @connection_timeout=2,
              @default_validation_type=:smtp,
@@ -607,6 +619,7 @@ Truemail.validate('email@example.com')
         configuration=
             #<Truemail::Configuration:0x00005615e87b9298
              @blacklisted_domains=[],
+             @dns=[],
              @connection_attempts=2,
              @connection_timeout=2,
              @default_validation_type=:smtp,
@@ -654,6 +667,7 @@ Truemail.validate('email@example.com')
       configuration=
             #<Truemail::Configuration:0x00005615e87b9298
              @blacklisted_domains=[],
+             @dns=[],
              @connection_attempts=2,
              @connection_timeout=2,
              @default_validation_type=:smtp,
