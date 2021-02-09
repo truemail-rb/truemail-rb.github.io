@@ -83,7 +83,8 @@ Truemail::Client.validate('admin@bestweb.com.ua')
         "smtp_safe_check": false,
         "email_pattern": "default gem value",
         "smtp_error_body_pattern": "default gem value",
-        "not_rfc_mx_lookup_flow": false
+        "not_rfc_mx_lookup_flow": false,
+        "dns": null
       }
     }
 ```
