@@ -49,7 +49,9 @@ Truemail::Client.validate("admin@bestweb.com.ua", configuration)
     "blacklisted_domains": null,
     "smtp_safe_check": false,
     "email_pattern": "default gem value",
-    "smtp_error_body_pattern": "default gem value"
+    "smtp_error_body_pattern": "default gem value",
+    "not_rfc_mx_lookup_flow": false,
+    "dns": null
   }
 }
 ```
