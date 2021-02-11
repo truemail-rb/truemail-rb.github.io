@@ -32,16 +32,16 @@ Returns serialized `Truemail::Auditor` instance as JSON-object:
     "ptr": "PTR-record does not reference to current verifier domain"
   },
  "configuration": {
-    "validation_type_by_domain": null,
-    "whitelist_validation": false,
-    "whitelisted_domains": null,
     "blacklisted_domains": null,
     "dns": null,
+    "email_pattern": "default gem value",
     "not_rfc_mx_lookup_flow": false,
+    "smtp_error_body_pattern": "default gem value",
     "smtp_fail_fast": false,
     "smtp_safe_check": false,
-    "email_pattern": "default gem value",
-    "smtp_error_body_pattern": "default gem value"
+    "validation_type_by_domain": null,
+    "whitelist_validation": false,
+    "whitelisted_domains": null
   }
 }
 ```
@@ -74,16 +74,16 @@ Returns serialized `Truemail::Validator` instance as JSON-object:
     }
   ],
   "configuration": {
-    "validation_type_by_domain": null,
-    "whitelist_validation": false,
-    "whitelisted_domains": null,
     "blacklisted_domains": null,
     "dns": null,
+    "email_pattern": "default gem value",
     "not_rfc_mx_lookup_flow": false,
+    "smtp_error_body_pattern": "default gem value",
     "smtp_fail_fast": false,
     "smtp_safe_check": false,
-    "email_pattern": "default gem value",
-    "smtp_error_body_pattern": "default gem value"
+    "validation_type_by_domain": null,
+    "whitelist_validation": false,
+    "whitelisted_domains": null
   }
 }
 ```
