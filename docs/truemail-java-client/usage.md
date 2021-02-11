@@ -38,7 +38,7 @@ After successful configuration, you can establish connection with Truemail serve
 TruemailClient truemailClient = new TruemailClient(truemailConfiguration);
 truemailClient.validate("admin@bestweb.com.ua")
 
-=>
+// =>
 
 {
   "date": "2020-10-26 10:42:42 +0200",
@@ -54,7 +54,9 @@ truemailClient.validate("admin@bestweb.com.ua")
     "blacklisted_domains": null,
     "smtp_safe_check": false,
     "email_pattern": "default gem value",
-    "smtp_error_body_pattern": "default gem value"
+    "smtp_error_body_pattern": "default gem value",
+    "not_rfc_mx_lookup_flow": false,
+    "dns": null
   }
 }
 ```
