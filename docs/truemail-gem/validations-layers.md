@@ -1,6 +1,6 @@
 # Validation's layers
 
-Truemail is a multi-layered email validator/verifier with configurable behavior for specified domain names. So you can validate only what you need.
+Truemail is a multi-layered email validator/verifier with configurable behavior for specified domain names/mx server ip addresses. So you can validate only what you need.
 
 ## Whitelist/Blacklist check
 
@@ -44,6 +44,7 @@ Truemail.validate('email@white-domain.com')
     smtp_debug=nil>,
     configuration=#<Truemail::Configuration:0x00005629f801bd28
      @blacklisted_domains=["black-domain.com", "somedomain.com"],
+     @blacklisted_mx_ip_addresses=[],
      @dns=[],
      @connection_attempts=2,
      @connection_timeout=2,
@@ -92,6 +93,7 @@ Truemail.validate('email@white-domain.com', with: :regex)
     configuration=
     #<Truemail::Configuration:0x0000563f0d2605c8
      @blacklisted_domains=[],
+     @blacklisted_mx_ip_addresses=[],
      @dns=[],
      @connection_attempts=2,
      @connection_timeout=2,
@@ -126,6 +128,7 @@ Truemail.validate('email@domain.com', with: :regex)
     configuration=
     #<Truemail::Configuration:0x0000563f0cd82ab0
      @blacklisted_domains=[],
+     @blacklisted_mx_ip_addresses=[],
      @dns=[],
      @connection_attempts=2,
      @connection_timeout=2,
@@ -146,7 +149,7 @@ Truemail.validate('email@domain.com', with: :regex)
 
 ### Blacklist case
 
-When email in blacklist, validation type will be redefined too. Validation result returns `false`
+When email in blacklist, validation type will be redefined too. Validation result returns `false`.
 
 ```ruby
 Truemail.validate('email@black-domain.com')
@@ -162,6 +165,7 @@ Truemail.validate('email@black-domain.com')
     configuration=
     #<Truemail::Configuration:0x0000563f0d36f4f0
      @blacklisted_domains=[],
+     @blacklisted_mx_ip_addresses=[],
      @dns=[],
      @connection_attempts=2,
      @connection_timeout=2,
@@ -198,6 +202,7 @@ Truemail.validate('email@somedomain.com')
     configuration=
     #<Truemail::Configuration:0x0000563f0d3f8fc0
      @blacklisted_domains=[],
+     @blacklisted_mx_ip_addresses=[],
      @dns=[],
      @connection_attempts=2,
      @connection_timeout=2,
@@ -247,6 +252,7 @@ Truemail.validate('email@example.com', with: :regex)
       configuration=
       #<Truemail::Configuration:0x000055aa56a54d48
        @blacklisted_domains=[],
+       @blacklisted_mx_ip_addresses=[],
        @dns=[],
        @connection_attempts=2,
        @connection_timeout=2,
@@ -291,6 +297,7 @@ Truemail.validate('email@example.com', with: :regex)
       configuration=
       #<Truemail::Configuration:0x0000560e58d80830
        @blacklisted_domains=[],
+       @blacklisted_mx_ip_addresses=[],
        @dns=[],
        @connection_attempts=2,
        @connection_timeout=2,
@@ -342,6 +349,7 @@ Truemail.validate('email@example.com', with: :mx)
       configuration=
       #<Truemail::Configuration:0x0000559b6e44af70
        @blacklisted_domains=[],
+       @blacklisted_mx_ip_addresses=[],
        @dns=[],
        @connection_attempts=2,
        @connection_timeout=2,
@@ -386,6 +394,7 @@ Truemail.validate('email@example.com', with: :mx)
       configuration=
       #<Truemail::Configuration:0x0000559b6e44af70
        @blacklisted_domains=[],
+       @blacklisted_mx_ip_addresses=[],
        @dns=[],
        @connection_attempts=2,
        @connection_timeout=2,
@@ -404,11 +413,60 @@ Truemail.validate('email@example.com', with: :mx)
   @validation_type=:mx>
 ```
 
+## MX blacklist validation
+
+MX blacklist validation is the third validation level. This layer provides checking extracted mail server(s) IP address from MX validation with predefined blacklisted IP addresses list. It can be used as a part of DEA ([disposable email address](https://en.wikipedia.org/wiki/Disposable_email_address)) validations.
+
+> [[Whitelist/Blacklist]](validations-layers?id=whitelistblacklist-check) -> [[Regex validation]](validations-layers?id=regex-validation) -> [[MX validation](validations-layers?id=mx-validation)] -> [MX blacklist validation]
+
+Example of usage:
+
+```ruby
+require 'truemail'
+
+Truemail.configure do |config|
+  config.verifier_email = 'verifier@example.com'
+  config.blacklisted_mx_ip_addresses = ['127.0.1.2']
+end
+
+Truemail.validate('email@example.com', with: :mx_blacklist)
+
+=> #<Truemail::Validator:0x00007fca0c8aea70
+ @result=
+  #<struct Truemail::Validator::Result
+   success=false,
+   email="email@example.com",
+   domain="example.com",
+   mail_servers=["127.0.1.1", "127.0.1.2"],
+   errors={:mx_blacklist=>"blacklisted mx server ip address"},
+   smtp_debug=nil,
+   configuration=
+    #<Truemail::Configuration:0x00007fca0c8aeb38
+     @blacklisted_domains=[],
+     @blacklisted_mx_ip_addresses=["127.0.1.2"],
+     @connection_attempts=2,
+     @connection_timeout=2,
+     @default_validation_type=:smtp,
+     @dns=[],
+     @email_pattern=/(?=\A.{6,255}\z)(\A([\p{L}0-9]+[\w|\-.+]*)@((?i-mx:[\p{L}0-9]+([\-.]{1}[\p{L}0-9]+)*\.\p{L}{2,63}))\z)/,
+     @not_rfc_mx_lookup_flow=false,
+     @response_timeout=2,
+     @smtp_error_body_pattern=/(?=.*550)(?=.*(user|account|customer|mailbox)).*/i,
+     @smtp_fail_fast=false,
+     @smtp_safe_check=false,
+     @validation_type_by_domain={},
+     @verifier_domain="example.com",
+     @verifier_email="verifier@example.com",
+     @whitelist_validation=false,
+     @whitelisted_domains=[]>>,
+ @validation_type=:mx_blacklist>
+```
+
 ## SMTP validation
 
-SMTP validation is a final, third validation level. This type of validation tries to check real existence of email account on a current email server. This validation runs a chain of previous validations and if they're complete successfully then runs itself.
+SMTP validation is a final, fourth validation level. This type of validation tries to check real existence of email account on a current email server. This validation runs a chain of previous validations and if they're complete successfully then runs itself.
 
-> [[Whitelist/Blacklist]](validations-layers?id=whitelistblacklist-check) -> [[Regex validation]](validations-layers?id=regex-validation) -> [[MX validation]](validations-layers?id=mx-validation) -> [SMTP validation]
+> [[Whitelist/Blacklist]](validations-layers?id=whitelistblacklist-check) -> [[Regex validation]](validations-layers?id=regex-validation) -> [[MX validation]](validations-layers?id=mx-validation) -> [[MX blacklist validation]](validations-layers?id=mx-blacklist-validation) -> [SMTP validation]
 
 If `smtp_fail_fast` feature is disabled or total count of MX servers is equal to one, `Truemail::Smtp` validator will use value from `Truemail.configuration.connection_attempts` as connection attempts. By default it's equal to `2`.
 
@@ -461,6 +519,7 @@ Truemail.validate('email@example.com')
         configuration=
           #<Truemail::Configuration:0x00007fdc4504f5c8
             @blacklisted_domains=[],
+            @blacklisted_mx_ip_addresses=[],
             @dns=[],
             @connection_attempts=2,
             @connection_timeout=2,
@@ -505,6 +564,7 @@ Truemail.validate('email@example.com')
       configuration=
       #<Truemail::Configuration:0x00005615e87b9298
        @blacklisted_domains=[],
+       @blacklisted_mx_ip_addresses=[],
        @dns=[],
        @connection_attempts=2,
        @connection_timeout=2,
@@ -556,6 +616,7 @@ Truemail.validate('email@example.com')
           configuration=
             #<Truemail::Configuration:0x00005615e87b9298
              @blacklisted_domains=[],
+             @blacklisted_mx_ip_addresses=[],
              @dns=[],
              @connection_attempts=2,
              @connection_timeout=2,
@@ -619,6 +680,7 @@ Truemail.validate('email@example.com')
         configuration=
             #<Truemail::Configuration:0x00005615e87b9298
              @blacklisted_domains=[],
+             @blacklisted_mx_ip_addresses=[],
              @dns=[],
              @connection_attempts=2,
              @connection_timeout=2,
@@ -667,6 +729,7 @@ Truemail.validate('email@example.com')
       configuration=
             #<Truemail::Configuration:0x00005615e87b9298
              @blacklisted_domains=[],
+             @blacklisted_mx_ip_addresses=[],
              @dns=[],
              @connection_attempts=2,
              @connection_timeout=2,
