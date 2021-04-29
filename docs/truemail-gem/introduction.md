@@ -10,7 +10,7 @@
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](https://github.com/truemail-rb/truemail/blob/master/CODE_OF_CONDUCT.md)
 [![Gitter](https://badges.gitter.im/truemail-rb/community.svg)](https://gitter.im/truemail-rb/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-> Configurable **framework agnostic** plain Ruby email validator/verifier. Verify email via Regex, DNS and SMTP. Be sure that email address valid and exists.
+> Configurable **framework agnostic** plain Ruby email validator/verifier. Verify email via Regex, DNS, SMTP and even more. Be sure that email address valid and exists.
 
 ## Synopsis
 
@@ -19,15 +19,16 @@ Email validation is a tricky thing. There are a number of different ways to vali
 ## Features
 
 1. Configurable layer-designed validator, validate only what you need
-2. Minimal runtime dependencies
+2. Only one runtime dependency
 3. Supporting of internationalized emails ([EAI](https://en.wikipedia.org/wiki/Email_address#Internationalization))
 4. Whitelist/blacklist validation's layers
 5. Ability to configure different MX/SMTP validation flows
-6. Simple SMTP debugger
-7. Event logger
-8. Host auditor tools (helps to detect common host problems interfering to proper email verification)
-9. JSON serializers for audition and validation results
-10. Ability to use the library as independent stateless microservice ([Truemail Server](https://truemail-rb.org/truemail-rack))
+6. Ability to configure [DEA](https://en.wikipedia.org/wiki/Disposable_email_address) validation flow
+7. Simple SMTP debugger
+8. Event logger
+9. Host auditor tools (helps to detect common host problems interfering to proper email verification)
+10. JSON serializers for audition and validation results
+11. Ability to use the library as independent stateless microservice ([Truemail Server](https://truemail-rb.org/truemail-rack))
 
 ## License
 

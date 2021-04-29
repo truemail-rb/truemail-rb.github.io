@@ -33,6 +33,7 @@ Returns serialized `Truemail::Auditor` instance as JSON-object:
   },
  "configuration": {
     "blacklisted_domains": null,
+    "blacklisted_mx_ip_addresses": null,
     "dns": null,
     "email_pattern": "default gem value",
     "not_rfc_mx_lookup_flow": false,
@@ -75,6 +76,7 @@ Returns serialized `Truemail::Validator` instance as JSON-object:
   ],
   "configuration": {
     "blacklisted_domains": null,
+    "blacklisted_mx_ip_addresses": null,
     "dns": null,
     "email_pattern": "default gem value",
     "not_rfc_mx_lookup_flow": false,

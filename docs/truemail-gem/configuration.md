@@ -16,6 +16,7 @@
 - whitelisted domains
 - whitelist validation
 - blacklisted domains
+- blacklisted mx ip-addresses
 - custom DNS gateway(s)
 - RFC MX lookup flow
 - SMTP fail fast
@@ -91,7 +92,13 @@ Truemail.configure do |config|
   # Optional parameter. Validation of email which contains blacklisted domain
   # always will return false. Other validations will not processed even if it
   # was defined in validation_type_for. It is equal to empty array by default.
-  config.blacklisted_domains = ['somedomain1.com', 'somedomain2.com']
+  config.blacklisted_domains = ['somedomain3.com', 'somedomain4.com']
+
+  # Optional parameter. With this option Truemail will filter out unwanted mx
+  # servers via predefined list of ip addresses. It can be used as a part of
+  # DEA (disposable email address) validations. It is equal to empty array by
+  # default.
+  config.blacklisted_mx_ip_addresses = ['1.1.1.1', '2.2.2.2']
 
   # Optional parameter. This option will provide to use custom DNS gateway when
   # Truemail interacts with DNS. Valid port numbers are in the range 1-65535.
@@ -144,11 +151,13 @@ Truemail.configuration
  @smtp_error_body_pattern=/regex_pattern/,
  @response_timeout=1,
  @connection_attempts=3,
- @validation_type_by_domain={},
- @whitelisted_domains=[],
+ @default_validation_type=:mx,
+ @validation_type_by_domain={"somedomain.com" => :regex, "otherdomain.com" => :mx},
+ @whitelisted_domains=["somedomain1.com", "somedomain2.com"],
  @whitelist_validation=true,
- @blacklisted_domains=[],
- @dns=[],
+ @blacklisted_domains=["somedomain3.com", "somedomain4.com"],
+ @blacklisted_mx_ip_addresses=["1.1.1.1", "2.2.2.2"],
+ @dns=["10.0.0.1", "10.0.0.2:54"],
  @verifier_domain="somedomain.com",
  @verifier_email="verifier@example.com",
  @not_rfc_mx_lookup_flow=true,
@@ -175,11 +184,13 @@ Truemail.configuration
  @smtp_error_body_pattern=/regex_pattern/,
  @response_timeout=4,
  @connection_attempts=1,
- @validation_type_by_domain={},
- @whitelisted_domains=[],
+ @default_validation_type=:mx,
+ @validation_type_by_domain={"somedomain.com" => :regex, "otherdomain.com" => :mx},
+ @whitelisted_domains=["somedomain1.com", "somedomain2.com"],
  @whitelist_validation=true,
- @blacklisted_domains=[],
- @dns=[],
+ @blacklisted_domains=["somedomain3.com", "somedomain4.com"],
+ @blacklisted_mx_ip_addresses=["1.1.1.1", "2.2.2.2"],
+ @dns=["10.0.0.1", "10.0.0.2:54"],
  @verifier_domain="somedomain.com",
  @verifier_email="verifier@example.com",
  @not_rfc_mx_lookup_flow=true,
