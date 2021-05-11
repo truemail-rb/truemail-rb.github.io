@@ -8,7 +8,7 @@
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](https://github.com/truemail-rb/truemail-rack/blob/master/CODE_OF_CONDUCT.md)
 [![Gitter](https://badges.gitter.im/truemail-rb/community.svg)](https://gitter.im/truemail-rb/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-***Truemail server*** - lightweight rack based web API wrapper for [Truemail](https://truemail-rb.org/truemail-gem ':target=_self') gem. Verify email via Regex, DNS and SMTP. Be sure that email address valid and exists.
+***Truemail server*** - lightweight rack based web API wrapper for [Truemail](https://truemail-rb.org/truemail-gem ':target=_self') gem. Verify email via Regex, DNS, SMTP and even more. Be sure that email address valid and exists.
 
 ## Features
 

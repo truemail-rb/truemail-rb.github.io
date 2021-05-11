@@ -32,6 +32,7 @@ Server: thin
   "smtp_debug": null,
   "configuration": {
     "blacklisted_domains": null,
+    "blacklisted_mx_ip_addresses": null,
     "dns": null,
     "email_pattern": "default gem value",
     "not_rfc_mx_lookup_flow": false,
@@ -80,6 +81,7 @@ Server: thin
   ],
   "configuration": {
     "blacklisted_domains": null,
+    "blacklisted_mx_ip_addresses": null,
     "dns": null,
     "email_pattern": "default gem value",
     "not_rfc_mx_lookup_flow": false,
