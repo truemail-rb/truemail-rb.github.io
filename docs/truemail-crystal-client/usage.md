@@ -12,17 +12,17 @@ To have an access for `Truemail::Client` you must configure it first as in the e
 
 ```crystal
 configuration = Truemail::Client::Configuration.new do |config|
-  # Optional parameter (Boolean). By default it is equal false
-  config.secure_connection = false
-
   # Required parameter (String). It should be a hostname or an ip address where Truemail server runs
   config.host = "example.com"
 
-  # Optional parameter (Int32). By default it is equal 9292
-  config.port = 80
-
   # Required parameter (String). It should be valid Truemail server access token
   config.token = "token"
+
+  # Optional parameter (Boolean). By default it is equal false
+  config.secure_connection = false
+
+  # Optional parameter (Int32). By default it is equal 9292
+  config.port = 80
 end
 ```
 
@@ -47,11 +47,12 @@ Truemail::Client.validate("admin@bestweb.com.ua", configuration)
     "whitelist_validation": false,
     "whitelisted_domains": null,
     "blacklisted_domains": null,
+    "blacklisted_mx_ip_addresses": null,
+    "dns": null,
     "smtp_safe_check": false,
     "email_pattern": "default gem value",
     "smtp_error_body_pattern": "default gem value",
-    "not_rfc_mx_lookup_flow": false,
-    "dns": null
+    "not_rfc_mx_lookup_flow": false
   }
 }
 ```
