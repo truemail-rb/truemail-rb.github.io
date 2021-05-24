@@ -18,11 +18,11 @@ boolean secureConnection = true;
 // Required parameter. It should be a hostname or an ip address where Truemail server runs
 String host = "example.com";
 
-// Optional parameter. By default it is equal 9292
-int port = 80;
-
 // Required parameter. It should be valid Truemail server access token
 String token = "token";
+
+// Optional parameter. By default it is equal 9292
+int port = 80;
 
 TruemailConfiguration truemailConfiguration = new TruemailConfiguration(secureConnection, host, token, port);
 
@@ -52,11 +52,12 @@ truemailClient.validate("admin@bestweb.com.ua")
     "whitelist_validation": false,
     "whitelisted_domains": null,
     "blacklisted_domains": null,
+    "blacklisted_mx_ip_addresses": null,
+    "dns": null,
     "smtp_safe_check": false,
     "email_pattern": "default gem value",
     "smtp_error_body_pattern": "default gem value",
-    "not_rfc_mx_lookup_flow": false,
-    "dns": null
+    "not_rfc_mx_lookup_flow": false
   }
 }
 ```
