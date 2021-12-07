@@ -10,7 +10,7 @@ To reduce SMTP validation time for failure cases you can enable fail fast featur
 
 ## Reducing SMTP validation time
 
-Example of Truemail SMTP validation delay time optimized configuration. It's a mix of minimal networks timeouts and enabling of smtp fail fast feature.
+Example of Truemail SMTP validation delay time optimized configuration. It's a mix of minimal networks timeouts and enabling of SMTP fail fast feature.
 
 ```ruby
 require 'truemail'

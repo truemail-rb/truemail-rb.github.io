@@ -1,5 +1,7 @@
 # Test environment
 
+!> Be careful! Don't do SMTP-requests to real SMTP-providers from your test environment. Please use one of approaches from examples below.
+
 ## Using whitelist/blacklist feature
 
 With [whitelist/blacklist Truemail feature](validations-layers?id=whitelistblacklist-check) you can define validation behavior for test and staging environment:
@@ -17,28 +19,26 @@ Truemail.configure do |config|
 end
 ```
 
-?> Please note, this is the preferred way instead of using stubs.
+?> Please note, this way is preferable instead of using stubs.
 
 ## Using stubs
 
-You can stub out email validation for your test environment. RSpec example:
+You can stub out email validation for your test environment like in RSpec example below:
 
 ```ruby
 RSpec.describe 'some test' do
-  subject(:test_terget) { some_class.call }
+  subject(:test_target) { some_class.call }
 
   before { allow(Truemail).to receive(:valid?).and_return(boolean) }
   # or
   before { allow(Truemail).to receive(:validate).and_return(boolean) }
   # or
-  before do
-    allow(Truemail).to receive_message_chain(:validate, :result, :valid?).and_return(boolean)
-  end
+  before { allow(Truemail).to receive_message_chain(:validate, :result, :valid?).and_return(boolean) }
 
   context 'some test context' do
     let(:boolean) { true }
 
-    it { is_expected.to be(true) }
+    it { is_expected.to be(boolean) }
   end
 end
 ```
