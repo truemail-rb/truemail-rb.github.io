@@ -19,6 +19,7 @@
 - blacklisted mx ip-addresses
 - custom DNS gateway(s)
 - RFC MX lookup flow
+- SMTP port number
 - SMTP fail fast
 - SMTP safe check
 - event logger
@@ -112,6 +113,9 @@ Truemail.configure do |config|
   # layer only. By default this option is disabled.
   config.not_rfc_mx_lookup_flow = true
 
+  # Optional parameter. SMTP port number. It is equal to 25 by default.
+  config.smtp_port = 2525
+
   # Optional parameter. This option will provide to use smtp fail fast behaviour.
   # When smtp_fail_fast = true it means that Truemail ends smtp validation session
   # after first attempt on the first mx server in any fail cases (network
@@ -161,6 +165,7 @@ Truemail.configuration
  @verifier_domain="somedomain.com",
  @verifier_email="verifier@example.com",
  @not_rfc_mx_lookup_flow=true,
+ @smtp_port=2525,
  @smtp_fail_fast=true,
  @smtp_safe_check=true,
  @logger=#<Truemail::Logger:0x0000557f837450b0
@@ -194,6 +199,7 @@ Truemail.configuration
  @verifier_domain="somedomain.com",
  @verifier_email="verifier@example.com",
  @not_rfc_mx_lookup_flow=true,
+ @smtp_port=2525,
  @smtp_fail_fast=true,
  @smtp_safe_check=true,
  @logger=#<Truemail::Logger:0x0000557f837450b0
