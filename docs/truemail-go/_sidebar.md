@@ -1,0 +1,16 @@
+- **Library Docs**
+- [Introduction](introduction)
+- [Terminology](terminology)
+- [Quick Start](quick-start)
+- [Configuration](configuration)
+- [Validation's layers](validations-layers)
+- [Helpers](helpers)
+- [Troubleshooting](troubleshooting)
+- [Contact & Support](contact-support)
+- [Changelog](changelog)
+- [Truemail Family](truemail-family)
+- **Library Links**
+- [![GitHub](https://icongr.am/devicon/github-original.svg?color=808080&size=16)GitHub](https://github.com/truemail-rb/truemail-go)
+- [![Go pkg](https://icongr.am/devicon/go-plain.svg?color=808080&size=16)Go pkg](https://pkg.go.dev/github.com/truemail-rb/truemail-go)
+- **Truemail**
+[Main Documentation](https://truemail-rb.org ':target=_self')
