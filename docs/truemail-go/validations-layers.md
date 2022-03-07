@@ -70,8 +70,6 @@ truemail.Validate("email@white-domain.com", configuration, "regex") // returns p
 truemail.IsValid("email@white-domain.com", configuration, "regex") // returns true
 ```
 
-When email domain in whitelist and `whitelist_validation` is sets equal to `true` validation type will be passed to other validators. Validation of email which not contains whitelisted domain always will return `false`.
-
 #### Email hasn't whitelisted domain
 
 ```go

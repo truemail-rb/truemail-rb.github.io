@@ -28,4 +28,4 @@ configuration := truemail.NewConfiguration(
 
 ## Using in non Golang project
 
-You can use Truemail outside of your Ruby project via [Truemail Server](https://truemail-rb.org/truemail-rack). For today we have 3 native clients ([Ruby](https://truemail-rb.org/truemail-ruby-client), [Crystal](https://truemail-rb.org/truemail-crystal-client), [Java](https://truemail-rb.org/truemail-java-client)) for this implementation.
+You can use Truemail outside of your Golang project via [Truemail Server](https://truemail-rb.org/truemail-rack). For today we have 3 native clients ([Ruby](https://truemail-rb.org/truemail-ruby-client), [Crystal](https://truemail-rb.org/truemail-crystal-client), [Java](https://truemail-rb.org/truemail-java-client)) for this implementation.

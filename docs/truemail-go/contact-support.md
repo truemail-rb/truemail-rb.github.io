@@ -6,7 +6,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/truema
 
 ## Code of Conduct
 
-Everyone interacting in the `truemail` project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/truemail-rb/truemail-go/blob/master/CONTRIBUTING.md).
+Everyone interacting in the `truemail-go` project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/truemail-rb/truemail-go/blob/master/CONTRIBUTING.md).
 
 ## Credits
 
