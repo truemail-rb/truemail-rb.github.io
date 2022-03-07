@@ -13,12 +13,12 @@
 
 ## Synopsis
 
-Email validation is a tricky thing. There are a number of different ways to validate an email address and all mechanisms must conform with the best practices and provide proper validation. The `truemail` package helps you to validate emails via regex pattern (email syntax checking), presence of DNS records (mail-server existence checking), and real existence of email account on a current email server.
+Email validation is a tricky thing. There are a number of different ways to validate an email address and all mechanisms must conform with the best practices and provide proper validation. The `truemail-go` package helps you to validate emails via regex pattern (email syntax checking), presence of DNS records (mail-server existence checking), and real existence of email account on a current email server.
 
 ## Features
 
 1. Configurable layer-designed validator, validate only what you need
-2. Zero one runtime dependency
+2. Zero runtime dependency
 3. Supporting of internationalized emails ([EAI](https://en.wikipedia.org/wiki/Email_address#Internationalization))
 4. Whitelist/blacklist validation layers
 5. Ability to configure different MX/SMTP validation flows
