@@ -135,9 +135,9 @@ Content-Type: application/json
 Server: thin
 
 {
-  "core": "2.5.4",
-  "platform": "ruby 2.6.6p146 (2020-03-31 revision 67876) [x86_64-darwin19]",
-  "version": "0.3.0"
+  "core": "2.7.1",
+  "platform": "ruby 3.1.1p18 (2022-02-18 revision 53f5fc4236) [x86_64-darwin20]",
+  "version": "0.4.0"
 }
 ```
 
