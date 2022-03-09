@@ -24,6 +24,7 @@ List of available env vars names and values:
 | `BLACKLISTED_MX_IP_ADDRESSES` | `127.0.1.1,127.0.1.2` | - | With this option Truemail will filter out unwanted mx servers via predefined list of ip addresses. It can be used as a part of DEA (disposable email address) validations. Accepts one ore more values separated by commas.
 | `DNS` | `8.8.8.8,8.8.4.4:53` | - | This option will provide to use custom DNS gateway when Truemail interacts with DNS. If you won't specify nameserver's ports Truemail will use default DNS TCP/UDP port 53. Accepts one ore more values separated by commas.
 | `NOT_RFC_MX_LOOKUP_FLOW` | `true` | - | This option will provide to use not RFC MX lookup flow. It means that MX and Null MX records will be cheked on the DNS validation layer only. By default [this option is disabled](https://truemail-rb.org/truemail-gem/#/validations-layers?id=not-rfc-mx-lookup-flow). |
+| `SMTP_PORT` | `2525` | - | SMTP port number. It is equal to `25` by default. |
 | `SMTP_FAIL_FAST` | `true` | - | This option will provide to use SMTP fail fast behaviour. When [smtp_fail_fast is enabled](https://truemail-rb.org/truemail-gem/#/validations-layers?id=smtp-fail-fast-enabled) it means that Truemail ends smtp validation session after first attempt on the first mx server in any fail cases (network connection/timeout error, smtp validation error). By default this option is disabled, available for SMTP validation only. |
 | `SMTP_SAFE_CHECK` | `true` | - | This option will be parse bodies of SMTP errors. It will be helpful if SMTP server does not return an exact answer that the email does not exist. By default [this option is disabled](https://truemail-rb.org/truemail-gem/#/validations-layers?id=smtp-safe-check-disabled), available for SMTP validation only. |
 | `LOG_STDOUT` | `true` | - | This option will be enable log all http requests to stdout. By default this option is disabled. |
@@ -56,6 +57,7 @@ WHITELIST_VALIDATION=true \
 BLACKLISTED_DOMAINS=somedomain4.com,somedomain5.com \
 DNS=8.8.8.8,8.8.4.4:53 \
 NOT_RFC_MX_LOOKUP_FLOW=true \
+SMTP_PORT=2525 \
 SMTP_FAIL_FAST=true \
 SMTP_SAFE_CHECK=true \
 LOG_STDOUT=true \
