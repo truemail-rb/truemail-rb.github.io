@@ -2,6 +2,20 @@
 
 Truemail is a multi-layered email validator/verifier with configurable behavior for specified domain names/mx server ip addresses. So you can validate only what you need.
 
+```mermaid
+flowchart LR
+A(Whitelist/Blacklist) --> B(Regex validation)
+B(Regex validation) --> C(MX validation)
+C(MX validation) --> D(MX blacklist validation)
+D(MX blacklist validation) --> E(SMTP validation)
+
+click A href "https://truemail-rb.org/truemail-gem/#/validations-layers?id=whitelistblacklist-check"
+click B href "https://truemail-rb.org/truemail-gem/#/validations-layers?id=regex-validation"
+click C href "https://truemail-rb.org/truemail-gem/#/validations-layers?id=mx-validation"
+click D href "https://truemail-rb.org/truemail-gem/#/validations-layers?id=mx-blacklist-validation"
+click E href "https://truemail-rb.org/truemail-gem/#/validations-layers?id=smtp-validation"
+```
+
 ## Whitelist/Blacklist check
 
 Whitelist/Blacklist check is zero validation level. You can define white and black list domains. It means that validation of email which contains whitelisted domain always will return `true`, and for blacklisted domain will return `false`.
