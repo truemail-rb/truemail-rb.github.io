@@ -8,12 +8,6 @@ A(Whitelist/Blacklist) --> B(Regex validation)
 B(Regex validation) --> C(MX validation)
 C(MX validation) --> D(MX blacklist validation)
 D(MX blacklist validation) --> E(SMTP validation)
-
-click A href "https://truemail-rb.org/truemail-gem/#/validations-layers?id=whitelistblacklist-check"
-click B href "https://truemail-rb.org/truemail-gem/#/validations-layers?id=regex-validation"
-click C href "https://truemail-rb.org/truemail-gem/#/validations-layers?id=mx-validation"
-click D href "https://truemail-rb.org/truemail-gem/#/validations-layers?id=mx-blacklist-validation"
-click E href "https://truemail-rb.org/truemail-gem/#/validations-layers?id=smtp-validation"
 ```
 
 ## Whitelist/Blacklist check
