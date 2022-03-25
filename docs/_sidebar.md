@@ -1,4 +1,5 @@
 - [About](about)
+- [Architecture](architecture)
 - [Resources](resources)
 - [Libraries statuses](truemail-family)
 - **Truemail Server**
