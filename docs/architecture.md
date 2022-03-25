@@ -10,7 +10,7 @@ C(MX validation) --> D(MX blacklist validation)
 D(MX blacklist validation) --> E(SMTP validation)
 ```
 
-## DNS (MX) validator
+## DNS validation flow
 
 ```mermaid
 flowchart TD
@@ -81,5 +81,38 @@ flowchart TD
 
   style A stroke:blue;
   style C color:red;
+  style Z color:green;
+```
+
+## SMTP validation flow
+
+```mermaid
+flowchart TD  
+  A[Mail server] --> B{Is the 25-port opened?}
+  B{Is the 25-port opened?} -->|False| D{Next mail-server exists?}
+  D{Next mail-server exists?} -->|False| Y[Validation fails]
+  D{Next mail-server exists?} -->|True| A[Mail server]
+  B{Is the 25-port opened?} -->|True| C(Run SMTP-session)
+  C(Run SMTP-session) -->|False| D{Next mail-server exists?}
+  C(Run SMTP-session) -->|True| Z[Validation successful]
+  
+  style Y color:red;
+  style Z color:green;
+```
+
+## SMTP-session
+
+```mermaid
+flowchart LR  
+  A(Open session) -->|True| B(HELO/EHLO)
+  B(HELO/EHLO) -->|True| C(MAILFROM)
+  C(MAILFROM) -->|True| D(RCPTTO)
+  D(RCPTTO) -->|True| Z[Validation successful]
+  A(Open session) -->|False| Y[Validation fails]
+  B(HELO/EHLO) -->|False| Y[Validation fails]
+  C(MAILFROM) -->|False| Y[Validation fails]
+  D(RCPTTO) -->|False| Y[Validation fails]
+  
+  style Y color:red;
   style Z color:green;
 ```
