@@ -30,7 +30,7 @@ flowchart TD
   style E color:red;
 ```
 
-### DNS (MX) validator - step 1, MX records resolver
+## MX records resolver
 
 ```mermaid
 flowchart TD
@@ -49,7 +49,7 @@ flowchart TD
   style Z color:green;
 ```
 
-### DNS (MX) validator - step 2, CNAME records resolver
+## CNAME records resolver
 
 ```mermaid
 flowchart TD
@@ -68,7 +68,7 @@ flowchart TD
   style Z color:green;
 ```
 
-### DNS (MX) validator - step 3, A records resolver
+## A records resolver
 
 ```mermaid
 flowchart TD
