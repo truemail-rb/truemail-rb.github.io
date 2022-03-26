@@ -339,6 +339,24 @@ In fact it's DNS validation because it checks not MX records only. DNS validatio
 
 Please note, Truemail MX validator [not performs](https://github.com/truemail-rb/truemail/issues/26) strict compliance of the [RFC 5321](https://tools.ietf.org/html/rfc5321#section-5) standard for the best validation outcome.
 
+```mermaid
+flowchart TD
+  Y[Domain name from email address] --> A(MX records resolver)
+  A(MX records resolver) -->|False| B(CNAME records resolver)
+  B(CNAME records resolver) -->|False| D(A records resolver)
+  D(A records resolver) -->|False| E[Validation fails]
+  A(MX records resolver) -->|not RFC MX lookup flow| E[Validation fails]
+  A(MX records resolver) -->|True| C[Validation successful]
+  B(CNAME records resolver) -->|True| C[Validation successful]
+  D(A records resolver) -->|True| C[Validation successful]
+  
+  style A stroke:blue;
+  style B stroke:blue;
+  style D stroke:blue;
+  style C color:green;
+  style E color:red;
+```
+
 ### RFC MX lookup flow
 
 [Truemail MX lookup](https://slides.com/vladislavtrotsenko/truemail#/0/9) based on RFC 5321. It consists of 3 substeps: `MX`, `CNAME` and `A` record resolvers. The point of each resolver is attempt to extract the mail servers from email domain. If at least one server exists that validation is successful. Iteration is processing until resolver returns `true`. Example of usage:
@@ -489,6 +507,20 @@ SMTP validation is a final, fourth validation level. This type of validation tri
 If `smtp_fail_fast` feature is disabled or total count of MX servers is equal to one, `Truemail::Smtp` validator will use value from `Truemail.configuration.connection_attempts` as connection attempts. By default it's equal to `2`.
 
 ?> You should follow [verifier host preconditions rules](quick-start?id=verifier-host-preconditions) for the best email SMTP validation outcome if you going to use this validation layer. Also you can reduce time of SMTP validation by enabling SMTP fail fast behaviour.
+
+```mermaid
+flowchart TD  
+  A[Mail server] --> B{Is the 25-port opened?}
+  B{Is the 25-port opened?} -->|False| D{Next mail-server exists?}
+  D{Next mail-server exists?} -->|False| Y[Validation fails]
+  D{Next mail-server exists?} -->|True| A[Mail server]
+  B{Is the 25-port opened?} -->|True| C(Run SMTP-session)
+  C(Run SMTP-session) -->|False| D{Next mail-server exists?}
+  C(Run SMTP-session) -->|True| Z[Validation successful]
+  
+  style Y color:red;
+  style Z color:green;
+```
 
 By default, you don't need pass with-parameter to use it. Example of usage is specified below:
 
