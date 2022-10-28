@@ -12,7 +12,7 @@ D(MX blacklist validation) --> E(SMTP validation)
 
 ## Whitelist/Blacklist check
 
-Whitelist/Blacklist check is zero validation level. You can define white and black list domains. It means that validation of email which contains whitelisted domain always will return `true`, and for blacklisted domain will return `false`.
+Whitelist/Blacklist check is zero validation level. You can define white and black list emails/domains. It means that validation of email which contains whitelisted email or domain always will return `true`, and for blacklisted email or domain will return `false`. It can be used as a part of SEA ([spam email address](https://en.wikipedia.org/wiki/Email_spam)) validations.
 
 Please note, other validations will not processed even if it was defined in `validation_type_for`.
 
@@ -29,6 +29,8 @@ require 'truemail'
 
 Truemail.configure do |config|
   config.verifier_email = 'verifier@example.com'
+  config.whitelisted_emails = %w[user@somedomain1.com user@somedomain2.com]
+  config.blacklisted_emails = %w[user@somedomain3.com user@somedomain4.com]
   config.whitelisted_domains = ['white-domain.com', 'somedomain.com']
   config.blacklisted_domains = ['black-domain.com', 'somedomain.com']
   config.validation_type_for = { 'somedomain.com' => :mx }
@@ -51,6 +53,8 @@ Truemail.validate('email@white-domain.com')
     errors={},
     smtp_debug=nil>,
     configuration=#<Truemail::Configuration:0x00005629f801bd28
+     @whitelisted_emails=["user@somedomain1.com", "user@somedomain2.com"],
+     @blacklisted_emails=["user@somedomain3.com", "user@somedomain4.com"],
      @blacklisted_domains=["black-domain.com", "somedomain.com"],
      @blacklisted_mx_ip_addresses=[],
      @dns=[],
@@ -101,6 +105,8 @@ Truemail.validate('email@white-domain.com', with: :regex)
     smtp_debug=nil>,
     configuration=
     #<Truemail::Configuration:0x0000563f0d2605c8
+     @whitelisted_emails=[],
+     @blacklisted_emails=[],
      @blacklisted_domains=[],
      @blacklisted_mx_ip_addresses=[],
      @dns=[],
@@ -137,6 +143,8 @@ Truemail.validate('email@domain.com', with: :regex)
     smtp_debug=nil>,
     configuration=
     #<Truemail::Configuration:0x0000563f0cd82ab0
+     @whitelisted_emails=[],
+     @blacklisted_emails=[],
      @blacklisted_domains=[],
      @blacklisted_mx_ip_addresses=[],
      @dns=[],
@@ -175,6 +183,8 @@ Truemail.validate('email@black-domain.com')
     smtp_debug=nil>,
     configuration=
     #<Truemail::Configuration:0x0000563f0d36f4f0
+     @whitelisted_emails=[],
+     @blacklisted_emails=[],
      @blacklisted_domains=[],
      @blacklisted_mx_ip_addresses=[],
      @dns=[],
@@ -213,6 +223,8 @@ Truemail.validate('email@somedomain.com')
     smtp_debug=nil>,
     configuration=
     #<Truemail::Configuration:0x0000563f0d3f8fc0
+     @whitelisted_emails=[],
+     @blacklisted_emails=[],
      @blacklisted_domains=[],
      @blacklisted_mx_ip_addresses=[],
      @dns=[],
@@ -264,6 +276,8 @@ Truemail.validate('email@example.com', with: :regex)
       smtp_debug=nil>,
       configuration=
       #<Truemail::Configuration:0x000055aa56a54d48
+       @whitelisted_emails=[],
+       @blacklisted_emails=[],
        @blacklisted_domains=[],
        @blacklisted_mx_ip_addresses=[],
        @dns=[],
@@ -310,6 +324,8 @@ Truemail.validate('email@example.com', with: :regex)
       smtp_debug=nil>,
       configuration=
       #<Truemail::Configuration:0x0000560e58d80830
+       @whitelisted_emails=[],
+       @blacklisted_emails=[],
        @blacklisted_domains=[],
        @blacklisted_mx_ip_addresses=[],
        @dns=[],
@@ -381,6 +397,8 @@ Truemail.validate('email@example.com', with: :mx)
       smtp_debug=nil>,
       configuration=
       #<Truemail::Configuration:0x0000559b6e44af70
+       @whitelisted_emails=[],
+       @blacklisted_emails=[],
        @blacklisted_domains=[],
        @blacklisted_mx_ip_addresses=[],
        @dns=[],
@@ -427,6 +445,8 @@ Truemail.validate('email@example.com', with: :mx)
       smtp_debug=nil>,
       configuration=
       #<Truemail::Configuration:0x0000559b6e44af70
+       @whitelisted_emails=[],
+       @blacklisted_emails=[],
        @blacklisted_domains=[],
        @blacklisted_mx_ip_addresses=[],
        @dns=[],
@@ -477,6 +497,8 @@ Truemail.validate('email@example.com', with: :mx_blacklist)
    smtp_debug=nil,
    configuration=
     #<Truemail::Configuration:0x00007fca0c8aeb38
+     @whitelisted_emails=[],
+     @blacklisted_emails=[],
      @blacklisted_domains=[],
      @blacklisted_mx_ip_addresses=["127.0.1.2"],
      @connection_attempts=2,
@@ -568,6 +590,8 @@ Truemail.validate('email@example.com')
                 errors={}>>],
         configuration=
           #<Truemail::Configuration:0x00007fdc4504f5c8
+            @whitelisted_emails=[],
+            @blacklisted_emails=[],
             @blacklisted_domains=[],
             @blacklisted_mx_ip_addresses=[],
             @dns=[],
@@ -614,6 +638,8 @@ Truemail.validate('email@example.com')
       smtp_debug=nil>,
       configuration=
       #<Truemail::Configuration:0x00005615e87b9298
+       @whitelisted_emails=[],
+       @blacklisted_emails=[],
        @blacklisted_domains=[],
        @blacklisted_mx_ip_addresses=[],
        @dns=[],
@@ -667,6 +693,8 @@ Truemail.validate('email@example.com')
                 errors={:rcptto=>"550 User not found\n"}>>]>,
           configuration=
             #<Truemail::Configuration:0x00005615e87b9298
+             @whitelisted_emails=[],
+             @blacklisted_emails=[],
              @blacklisted_domains=[],
              @blacklisted_mx_ip_addresses=[],
              @dns=[],
@@ -732,6 +760,8 @@ Truemail.validate('email@example.com')
                 errors={:mailfrom=>"554 5.7.1 Client host blocked\n", :connection=>"server dropped connection after response"}>>,]>,
         configuration=
             #<Truemail::Configuration:0x00005615e87b9298
+             @whitelisted_emails=[],
+             @blacklisted_emails=[],
              @blacklisted_domains=[],
              @blacklisted_mx_ip_addresses=[],
              @dns=[],
@@ -782,6 +812,8 @@ Truemail.validate('email@example.com')
               errors={:rcptto=>"550 User not found\n"}>>]>,
       configuration=
             #<Truemail::Configuration:0x00005615e87b9298
+             @whitelisted_emails=[],
+             @blacklisted_emails=[],
              @blacklisted_domains=[],
              @blacklisted_mx_ip_addresses=[],
              @dns=[],

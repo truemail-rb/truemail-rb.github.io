@@ -13,9 +13,11 @@
 - connection attempts
 - default validation type
 - validation type for domains
+- whitelisted emails
+- blacklisted emails
 - whitelisted domains
-- whitelist validation
 - blacklisted domains
+- whitelist validation
 - blacklisted mx ip-addresses
 - custom DNS gateway(s)
 - RFC MX lookup flow
@@ -78,10 +80,25 @@ Truemail.configure do |config|
     'otherdomain.com' => :mx
   }
 
+  # Optional parameter. Validation of email which contains whitelisted emails
+  # always will return true. Other validations will not processed even if it
+  # was defined in validation_type_for. It is equal to empty array by default.
+  config.whitelisted_emails = %w[user@somedomain1.com user@somedomain2.com]
+
+  # Optional parameter. Validation of email which contains blacklisted emails
+  # always will return false. Other validations will not processed even if it
+  # was defined in validation_type_for. It is equal to empty array by default.
+  config.blacklisted_emails = %w[user@somedomain3.com user@somedomain4.com]
+
   # Optional parameter. Validation of email which contains whitelisted domain
   # always will return true. Other validations will not processed even if it
   # was defined in validation_type_for. It is equal to empty array by default.
   config.whitelisted_domains = ['somedomain1.com', 'somedomain2.com']
+
+  # Optional parameter. Validation of email which contains blacklisted domain
+  # always will return false. Other validations will not processed even if it
+  # was defined in validation_type_for. It is equal to empty array by default.
+  config.blacklisted_domains = ['somedomain3.com', 'somedomain4.com']
 
   # Optional parameter. With this option Truemail will validate email which
   # contains whitelisted domain only, i.e. if domain whitelisted, validation
@@ -89,11 +106,6 @@ Truemail.configure do |config|
   # not contains whitelisted domain always will return false.
   # It is equal false by default.
   config.whitelist_validation = true
-
-  # Optional parameter. Validation of email which contains blacklisted domain
-  # always will return false. Other validations will not processed even if it
-  # was defined in validation_type_for. It is equal to empty array by default.
-  config.blacklisted_domains = ['somedomain3.com', 'somedomain4.com']
 
   # Optional parameter. With this option Truemail will filter out unwanted mx
   # servers via predefined list of ip addresses. It can be used as a part of
@@ -157,6 +169,8 @@ Truemail.configuration
  @connection_attempts=3,
  @default_validation_type=:mx,
  @validation_type_by_domain={"somedomain.com" => :regex, "otherdomain.com" => :mx},
+ @whitelisted_emails=["user@somedomain1.com", "user@somedomain2.com"],
+ @blacklisted_emails=["user@somedomain3.com", "user@somedomain4.com"],
  @whitelisted_domains=["somedomain1.com", "somedomain2.com"],
  @whitelist_validation=true,
  @blacklisted_domains=["somedomain3.com", "somedomain4.com"],
@@ -191,6 +205,8 @@ Truemail.configuration
  @connection_attempts=1,
  @default_validation_type=:mx,
  @validation_type_by_domain={"somedomain.com" => :regex, "otherdomain.com" => :mx},
+ @whitelisted_emails=["user@somedomain1.com", "user@somedomain2.com"],
+ @blacklisted_emails=["user@somedomain3.com", "user@somedomain4.com"],
  @whitelisted_domains=["somedomain1.com", "somedomain2.com"],
  @whitelist_validation=true,
  @blacklisted_domains=["somedomain3.com", "somedomain4.com"],
