@@ -29,6 +29,8 @@ Truemail.host_audit
        warnings={}>,
        configuration=
         #<Truemail::Configuration:0x00005615e86327a8
+         @whitelisted_emails=[],
+         @blacklisted_emails=[],
          @blacklisted_domains=[],
          @blacklisted_mx_ip_addresses=[],
          @dns=[],
@@ -59,6 +61,8 @@ Truemail.host_audit
        },
        configuration=
         #<Truemail::Configuration:0x00005615e86327a8
+         @whitelisted_emails=[],
+         @blacklisted_emails=[],
          @blacklisted_domains=[],
          @blacklisted_mx_ip_addresses=[],
          @dns=[],
