@@ -31,17 +31,19 @@ Server: thin
   "errors": null,
   "smtp_debug": null,
   "configuration": {
+    "validation_type_by_domain": null,
+    "whitelisted_emails": null,
+    "blacklisted_emails": null,
+    "whitelisted_domains": null,
     "blacklisted_domains": null,
+    "whitelist_validation": false,
     "blacklisted_mx_ip_addresses": null,
     "dns": null,
     "email_pattern": "default gem value",
     "not_rfc_mx_lookup_flow": false,
     "smtp_error_body_pattern": "default gem value",
     "smtp_fail_fast": false,
-    "smtp_safe_check": false,
-    "validation_type_by_domain": null,
-    "whitelist_validation": false,
-    "whitelisted_domains": null
+    "smtp_safe_check": false
   }
 }
 ```
@@ -80,17 +82,19 @@ Server: thin
     }
   ],
   "configuration": {
+    "validation_type_by_domain": null,
+    "whitelisted_emails": null,
+    "blacklisted_emails": null,
+    "whitelisted_domains": null,
     "blacklisted_domains": null,
+    "whitelist_validation": false,
     "blacklisted_mx_ip_addresses": null,
     "dns": null,
     "email_pattern": "default gem value",
     "not_rfc_mx_lookup_flow": false,
     "smtp_error_body_pattern": "default gem value",
     "smtp_fail_fast": false,
-    "smtp_safe_check": true,
-    "validation_type_by_domain": null,
-    "whitelist_validation": false,
-    "whitelisted_domains": null
+    "smtp_safe_check": false
   }
 }
 ```
@@ -135,9 +139,9 @@ Content-Type: application/json
 Server: thin
 
 {
-  "core": "2.7.1",
-  "platform": "ruby 3.1.1p18 (2022-02-18 revision 53f5fc4236) [x86_64-darwin20]",
-  "version": "0.4.0"
+  "core": "3.0.1",
+  "platform": "ruby 3.1.2p20 (2022-04-12 revision 4491bb740a) [x86_64-darwin20]",
+  "version": "0.5.0"
 }
 ```
 
