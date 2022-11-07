@@ -1,6 +1,6 @@
 # ![Truemail lightweight rack based web API docker image](https://truemail-rb.org/assets/images/truemail_logo.png)
 
-[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/truemail/truemail-rack)](https://hub.docker.com/r/truemail/truemail-rack/builds)
+[![Docker Cloud Build Status](https://img.shields.io/badge/docker%20build-passing-success)](https://hub.docker.com/r/truemail/truemail-rack/tags)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/truemail-rb/truemail-rack-docker-image)
 ![Docker Image Size](https://img.shields.io/docker/image-size/truemail/truemail-rack)
 ![Docker Pulls](https://img.shields.io/docker/pulls/truemail/truemail-rack)
