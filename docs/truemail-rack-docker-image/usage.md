@@ -28,4 +28,4 @@ services:
     tty: true
 ```
 
-?> If you want to use specific version you should specify it in image section: `image: truemail/truemail-rack:v0.2.8` List of all available releases you can find [here](https://github.com/truemail-rb/truemail-rack-docker-image/releases).
+?> If you want to use specific version you should specify it in image section: `image: truemail/truemail-rack:v0.5.0` List of all available releases you can find [here](https://github.com/truemail-rb/truemail-rack-docker-image/releases).
