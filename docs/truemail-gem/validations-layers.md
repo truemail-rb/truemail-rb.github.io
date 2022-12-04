@@ -31,8 +31,8 @@ Truemail.configure do |config|
   config.verifier_email = 'verifier@example.com'
   config.whitelisted_emails = %w[user@somedomain1.com user@somedomain2.com]
   config.blacklisted_emails = %w[user@somedomain3.com user@somedomain4.com]
-  config.whitelisted_domains = ['white-domain.com', 'somedomain.com']
-  config.blacklisted_domains = ['black-domain.com', 'somedomain.com']
+  config.whitelisted_domains = %w[white-domain.com somedomain.com]
+  config.blacklisted_domains = %w[black-domain.com somedomain.com]
   config.validation_type_for = { 'somedomain.com' => :mx }
 end
 ```
@@ -83,7 +83,7 @@ require 'truemail'
 
 Truemail.configure do |config|
   config.verifier_email = 'verifier@example.com'
-  config.whitelisted_domains = ['white-domain.com']
+  config.whitelisted_domains = %w[white-domain.com]
   config.whitelist_validation = true
 end
 ```
@@ -481,7 +481,7 @@ require 'truemail'
 
 Truemail.configure do |config|
   config.verifier_email = 'verifier@example.com'
-  config.blacklisted_mx_ip_addresses = ['127.0.1.2']
+  config.blacklisted_mx_ip_addresses = %w[127.0.1.2]
 end
 
 Truemail.validate('email@example.com', with: :mx_blacklist)
