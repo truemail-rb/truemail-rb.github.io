@@ -28,7 +28,17 @@
       homepage: 'about.md',
       auto2top: true,
       maxLevel: 3,
-      subMaxLevel: 3
+      subMaxLevel: 3,
+      plugins: [
+        function (hook) {
+          hook.doneEach(function () {
+            let mermaidConfig = {
+              querySelector: ".mermaid",
+            };
+            mermaid.run(mermaidConfig);
+          });
+        },
+      ]
     };
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js" data-ga="UA-12777251-16"></script>
