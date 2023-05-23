@@ -35,7 +35,17 @@
         depth: 3,
         noData: 'No results!',
         placeholder: 'Search...'
-      }
+      },
+      plugins: [
+        function (hook) {
+          hook.doneEach(function () {
+            let mermaidConfig = {
+              querySelector: ".mermaid",
+            };
+            mermaid.run(mermaidConfig);
+          });
+        },
+      ]
     };
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js" data-ga="G-598SC8L9LN"></script>
