@@ -2,7 +2,7 @@
 
 ## Requirements
 
-!> Linux/MacOS, git, Ruby MRI 3.1.2
+!> Linux/MacOS, git, Ruby MRI 3.3.0
 
 ## Installation
 
