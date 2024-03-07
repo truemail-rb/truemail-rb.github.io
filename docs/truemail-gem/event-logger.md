@@ -1,6 +1,6 @@
 # Event logger
 
-Truemail gem allows to output tracking events to stdout/file or both of these. Please note, at least one of the outputs must exist. Tracking event by default is `:error`.
+Truemail gem allows to output tracking events to stdout/file or both of these. Please note, at least one of the outputs (stdout or file path) must exists. Tracking event by default is `:error`.
 
 ```ruby
 Truemail.configure do |config|
@@ -9,6 +9,16 @@ Truemail.configure do |config|
     stdout: true,
     log_absolute_path: '/home/app/log/truemail.log'
   }
+end
+```
+
+## Using custom logger
+
+By default Truemail uses `Logger`, default logger instance from Ruby stdlib. But you can override this behavior passing your logger instance in event logger configuration. Please note, your own logger instance should have the same interface as builtin stdlib `Logger` instance. In this case `custom_logger` is only one required field for logger configuration (you don't have to use `stdout` and `log_absolute_path`).
+
+```ruby
+Truemail.configure do |config|
+  config.logger = { custom_logger: MyCustomLogger.new }
 end
 ```
 
