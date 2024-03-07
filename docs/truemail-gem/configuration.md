@@ -142,10 +142,11 @@ Truemail.configure do |config|
   # validation only.
   config.smtp_safe_check = true
 
-  # Optional parameter. This option will enable tracking events. You can print
-  # tracking events to stdout, write to file or both of these. Available tracking
-  # event: :all, :unrecognized_error, :recognized_error, :error
-  # Tracking event by default is :error
+  # Optional parameter. This option will enable tracking events. You can print tracking
+  # events to stdout, write to file or both of these. Logger instance by default is Logger
+  # instance from Ruby stdlib. You can override this behavior. See how to do it in the
+  # examples below. Available tracking event: :all, :unrecognized_error, :recognized_error,
+  # :error. Tracking event by default is :error
   config.logger = {
     tracking_event: :all,
     stdout: true,
@@ -183,7 +184,7 @@ Truemail.configuration
  @smtp_fail_fast=true,
  @smtp_safe_check=true,
  @logger=#<Truemail::Logger:0x0000557f837450b0
-   @event=:all, @file="/home/app/log/truemail.log", @stdout=true>>
+   @event=:all, @file="/home/app/log/truemail.log", @custom_logger=nil @stdout=true>>
 ```
 
 ### Updating configuration
@@ -219,7 +220,7 @@ Truemail.configuration
  @smtp_fail_fast=true,
  @smtp_safe_check=true,
  @logger=#<Truemail::Logger:0x0000557f837450b0
-   @event=:all, @file="/home/app/log/truemail.log", @stdout=true>>
+   @event=:all, @file="/home/app/log/truemail.log", @custom_logger=nil @stdout=true>>
 ```
 
 ### Reseting configuration
